@@ -6,9 +6,21 @@ export default function manageRestaurants(state = {plans:[], stories:[] }, actio
         case 'ADD_PLAN':
             console.log("ADD_PLAN")
             const id = cuid()
-            const name = action.name
+            const {name, owner} = action.plan
             return {...state, 
-                    plans: [...state.plans, {id, name}]}  
+                    plans: [...state.plans, {id, name, owner}]} 
+        
+        case 'DELETE_PLAN':
+                console.log("DELETE_PLAN")
+                const plans = state.plans.filter(plan => plan.id !== action.id)
+                return {...state, plans}
+                
+                    
+
+
+
+
+
         default:
             return state;
     }

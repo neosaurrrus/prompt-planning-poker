@@ -17,10 +17,13 @@ export default function managePlans(state = {plans:[], loading: false }, action)
                     loading: false
                 } 
         
-        // case 'DELETE_PLAN':
-        //         console.log("DELETE_PLAN")
-        //         const plans = state.plans.filter(plan => plan.id !== action.id)
-        //         return {...state, plans}
+        case 'DELETE_PLAN':
+                console.log("DELETE_PLAN")
+                return {
+                    ...state,
+                    loading:true
+                }
+            
 
         default:
             return state;

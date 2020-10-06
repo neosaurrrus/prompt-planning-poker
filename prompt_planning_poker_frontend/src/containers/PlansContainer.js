@@ -8,10 +8,9 @@ import { getPlans, addPlan, deletePlan } from '../actions/planActions'
 
 class PlansContainer extends Component {
 
-  state = {}
 
-  newPlan = () =>{
-    this.props.addPlan("test")
+  componentDidMount(){
+    this.props.getPlans()
   }
 
   render() {
@@ -22,6 +21,7 @@ class PlansContainer extends Component {
       </div>
     )
   }
+}
 
 
 const mapStateToProps = state => { 

@@ -6,8 +6,7 @@ export default function managePlans(state = {plans:[], loading: false }, action)
 
         case 'LOADING_PLANS':
             return {
-                state,
-                plans: [...state.plans],
+                ...state,
                 loading:true
             }
         
@@ -17,6 +16,11 @@ export default function managePlans(state = {plans:[], loading: false }, action)
             const {name, owner} = action.plan
             return {...state, 
                     plans: [...state.plans, {id, name, owner}]} 
+
+        case 'GET_PLANS':
+            console.log("GET_PLANS")
+            return {...state, 
+                    plans: action.plans} 
         
         case 'DELETE_PLAN':
                 console.log("DELETE_PLAN")

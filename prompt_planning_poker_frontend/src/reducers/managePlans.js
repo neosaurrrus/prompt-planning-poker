@@ -1,8 +1,16 @@
 import cuid from 'cuid';
 
-export default function manageRestaurants(state = {plans:[], stories:[] }, action) {
+export default function managePlans(state = {plans:[], loading: false }, action) {
 
     switch (action.type){
+
+        case 'LOADING_PLANS':
+            return {
+                state,
+                plans: [...state.plans],
+                loading:true
+            }
+        
         case 'ADD_PLAN':
             console.log("ADD_PLAN")
             const id = cuid()

@@ -5,9 +5,12 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import managePlans from './reducers/managePlans';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import thunk from 'redux-thunk'
+import { createStore, applyMiddleware } from 'redux';
 
-const store = createStore(managePlans, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
+
+const store = createStore(managePlans, applyMiddleware(thunk));
 
 
 ReactDOM.render(

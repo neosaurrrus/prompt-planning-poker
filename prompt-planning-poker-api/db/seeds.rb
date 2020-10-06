@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+Plan.create(name: "Test Plan 1", owner: "Test User 1", url: "testurl1")
+Plan.create(name: "Test Plan 2", owner: "Test User 2", url: "testurl2")
+

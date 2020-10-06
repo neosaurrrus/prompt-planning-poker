@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 
 class Plan extends Component {
 
+state = {name:"", owner:""}
 
   handleDelete = (e) => {
-    console.log("deleting " + this.props.plan.name)
     this.props.deletePlan(this.props.plan.id)
   }
 

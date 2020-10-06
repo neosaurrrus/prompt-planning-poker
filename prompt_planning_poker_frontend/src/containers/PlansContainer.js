@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import PlanInput from '../components/PlanInput';
 import Plans from '../components/Plans';
-import { getPlans } from '../actions/planActions'
+
+import { getPlans, addPlan, deletePlan } from '../actions/planActions'
+// import {addPlan} from '../actions/planActions'
+
 class PlansContainer extends Component {
 
   state = {}
@@ -15,25 +18,21 @@ class PlansContainer extends Component {
     return (
       <div>
         <PlanInput addPlan={this.props.addPlan} />
-        <Plans getPlans={this.props.getPlans} deletePlan={this.props.deletePlan} />
+        <Plans getPlans={this.props.getPlans} deletePlan={this.props.deletePlan} plans={this.props.plans}/>
       </div>
     )
   }
-}
-// WHY is there no plans in the state?
+
 
 const mapStateToProps = state => { 
   return {plans: state.plans}
 }
-  
-// const mapDispatchToProps = dispatch => ({
-//   addPlan: plan  => dispatch({ type: "ADD_PLAN", plan}),
-//   deletePlan: id => dispatch({ type: "DELETE_PLAN", id})
-// })
 
 const mapDispatchToProps = dispatch => {
   return {
-    getPlans: () => dispatch(getPlans())
+    getPlans: () => dispatch(getPlans()),
+    deletePlan: (id) => dispatch(deletePlan(id)),
+    addPlan: (plan) => dispatch(addPlan(plan)),
   }
 }
 

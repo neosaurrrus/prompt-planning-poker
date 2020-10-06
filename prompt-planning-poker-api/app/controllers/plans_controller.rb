@@ -19,8 +19,10 @@ class PlansController < ApplicationController
         plan.update(plan_params)
         render json: plan
     end
+
     def destroy
-        plan = Plan.find(params[:id])
+     
+        plan = Plan.find_by(id:params[:id])
         plan.delete
         render json: Plan.all
     end

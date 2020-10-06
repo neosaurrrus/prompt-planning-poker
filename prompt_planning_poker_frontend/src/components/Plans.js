@@ -4,7 +4,7 @@ import Plan from './Plan'
 
 class Plans extends Component {
 
-  state = {plans:[]}
+
   
   componentDidMount() {
     this.props.getPlans()

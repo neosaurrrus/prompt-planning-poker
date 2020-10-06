@@ -10,11 +10,10 @@ export const getPlans = () => {
     .then(res => {
         dispatch({type: 'GET_PLANS', plans: res})
           })
-    .catch(console.log("Loading Failed"))
+    .catch(err => console.log(err))
     }
 }
 export const addPlan = (plan) => {
-    debugger
     const data = {...plan, url: cuid()}
     return (dispatch) => {
         dispatch({ type: 'LOADING_PLANS'})
@@ -28,14 +27,22 @@ export const addPlan = (plan) => {
     })
     .then(resp => resp.json())
     .then(res => {
-        dispatch({type: 'GET_PLANS', plans: res.plans})
+        fetch('http://localhost:3000/plans')
+        .then(resp => resp.json())
+        .then(res => {
+            dispatch({type: 'GET_PLANS', plans: res})
+              })
+        .catch(err => console.log(err))
+
+
+
           })
-    .catch(console.log("Loading Failed"))
+        .catch((err) => console.log(err))
     }
 }
 
 export const deletePlan = (id) => {
-    debugger
+
     return (dispatch) => {
         dispatch({ type: 'LOADING_PLANS'})
     fetch(`http://localhost:3000/plans/${id}`, {
@@ -48,8 +55,13 @@ export const deletePlan = (id) => {
     })
     .then(resp => resp.json())
     .then(res => {
-        dispatch({type: 'GET_PLANS', plans: res.plans})
+        fetch('http://localhost:3000/plans')
+        .then(resp => resp.json())
+        .then(res => {
+            dispatch({type: 'GET_PLANS', plans: res})
+              })
+        .catch(err => console.log(err))
           })
-    .catch(console.log("Loading Failed"))
+    .catch((err) => console.log(err))
     }
 }

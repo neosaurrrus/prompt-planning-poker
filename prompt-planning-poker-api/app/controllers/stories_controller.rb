@@ -13,7 +13,8 @@ class StoriesController < ApplicationController
     end
 
     def create 
-        story = plan.story.build!(story_params)
+        story = plan.stories.build!
+    (story_params)
         render json: story
     end
 

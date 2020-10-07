@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
+import {Router, withRouter} from 'react-router-dom'
 
 
 class Plan extends Component {
 
-state = {name:"", owner:""}
-
   handleDelete = (e) => {
     this.props.deletePlan(this.props.plan.id)
   }
+  
+  componentDidMount(){
+    console.log(this.props.match.params.url)
+  }
+
 
   render() {
     const { name, owner} = this.props.plan;
 
     return (
-      <div>
+         <div>
+        <h2>Plan</h2>
         <li>
           {name} - {owner}
           <button onClick={this.handleDelete}> X </button>
@@ -23,4 +29,17 @@ state = {name:"", owner:""}
   }
 };
 
-export default Plan;
+Plan.defaultProps = {
+  plan:{
+    name:"",
+  owner:""
+  }
+}
+
+const mapStateToProps = (state,ownprops) => { 
+  const url = ownprops.match.params.url
+ 
+  return {plan: state.plans.find(plan => plan.url === url) }
+}
+export default withRouter(connect(mapStateToProps)(Plan));
+

@@ -14,7 +14,7 @@ export const getPlans = () => {
     }
 }
 export const addPlan = (plan) => {
-    const data = {...plan, url: cuid()}
+    const data = {...plan}
     return (dispatch) => {
         dispatch({ type: 'LOADING_PLANS'})
     fetch('http://localhost:3000/plans', {

@@ -14,9 +14,7 @@ x
     return(
       <div>
         <h2>Plans</h2>
-        
         {this.props.plans.map( plan => <Plan key={plan.id} deletePlan={this.props.deletePlan} plan={plan}/>)}
-
       </div>
     );
   }

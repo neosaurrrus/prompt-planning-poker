@@ -41,7 +41,7 @@ export const addPlan = (plan) => {
     }
 }
 
-export const deletePlan = (id) => {
+export const deletePlan = (id) => { 
 
     return (dispatch) => {
         dispatch({ type: 'LOADING_PLANS'})

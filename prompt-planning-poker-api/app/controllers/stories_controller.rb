@@ -29,7 +29,7 @@ class StoriesController < ApplicationController
 
     private
 
-    private
+  
   def get_plan
      plan = Plan.find(params[:plan_id])
   end

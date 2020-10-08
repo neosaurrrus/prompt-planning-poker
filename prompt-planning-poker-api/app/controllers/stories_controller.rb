@@ -14,7 +14,9 @@ class StoriesController < ApplicationController
     end
 
     def create 
+        plan = Plan.find_by(url:params[:url])
         story = plan.stories.build(story_params)
+        story.save
         render json: story
     end
 
@@ -44,7 +46,7 @@ class StoriesController < ApplicationController
   end
 
     def story_params
-        params.require(:story).permit(:id, :name, :owner, :url, :complete)
+        params.require(:story).permit(:as_a, :want_to, :i_can, :url, :plan, :complete)
     end
 
 end

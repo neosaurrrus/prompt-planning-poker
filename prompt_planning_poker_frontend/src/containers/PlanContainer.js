@@ -2,29 +2,27 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {Router, withRouter} from 'react-router-dom'
 import PlanHeader from '../components/PlanHeader'
+import StoryContainer from './StoriesContainer'
+import { getPlan, getPlans, addPlan, deletePlan } from '../actions/planActions'
 
 
 class PlanContainer extends Component {
 
-  getStories = (planUrl) => {
+  state = {plan:{}}
 
-  }
-  handleDelete = (e) => {
-    this.props.deletePlan(this.props.plan.id)
-  }
-  
-  componentDidMount(){
-    console.log(this.props.match.params.url)
-
-  }
-
+  componentDidMount() {
+    
+    this.setState({
+      plan: this.props.plans.find(plan => plan.url === this.props.match.params.url)
+      Figure out how to get current plan from plans using url!
+  })
+}
 
   render() {
-    const { name, owner} = this.props.plan;
-
     return (
          <div>
            <PlanHeader deletePlan={this.props.deletePlan} plan={this.props.plan} />
+           <StoryContainer plan={this.props.plan}></StoryContainer>
        </div>
     );
   }
@@ -32,16 +30,26 @@ class PlanContainer extends Component {
 
 PlanContainer.defaultProps = {
   plan:{
-    name:"",
-  owner:""
+    name:"Error",
+  owner:"Error"
   }
 }
 
 const mapStateToProps = (state,ownprops) => { 
   const url = ownprops.match.params.url
  
-  return {plan: state.plans.find(plan => plan.url === url) }
+  return {plans: state.plans}
 }
-export default withRouter(connect(mapStateToProps)(PlanContainer));
+const mapDispatchToProps = (dispatch,ownProps) => {
+  const url = ownProps.match.params.url
+  
+  return {
+    getPlan: (id) => dispatch(getPlan(id)),
+    getPlans: () => dispatch(getPlans()),
+    deletePlan: (id) => dispatch(deletePlan(id)),
+    addPlan: (plan) => dispatch(addPlan(plan)),
+  }
+}
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(PlanContainer));
 
 

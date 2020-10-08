@@ -13,6 +13,17 @@ export const getPlans = () => {
     .catch(err => console.log(err))
     }
 }
+export const getPlan = (id) => {
+    return (dispatch) => {
+        dispatch({ type: 'LOADING_PLANS'})
+    fetch(`http://localhost:3000/plans/${id}`)
+    .then(resp => resp.json())
+    .then(res => {
+        dispatch({type: 'GET_PLAN', plan: res})
+          })
+    .catch(err => console.log(err))
+    }
+}
 export const addPlan = (plan) => {
     const data = {...plan}
     return (dispatch) => {
@@ -42,7 +53,6 @@ export const addPlan = (plan) => {
 }
 
 export const deletePlan = (id) => { 
-
     return (dispatch) => {
         dispatch({ type: 'LOADING_PLANS'})
     fetch(`http://localhost:3000/plans/${id}`, {

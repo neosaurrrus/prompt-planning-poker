@@ -10,7 +10,7 @@ function Stories(props){
 
     return (
         <div>
-           {renderStories}
+           {renderStories()}
         </div>
        
     )

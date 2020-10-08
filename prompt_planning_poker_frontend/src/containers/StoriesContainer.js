@@ -25,7 +25,7 @@ class StoriesContainer extends Component {
          <div>
            <h2>StoriesContainer</h2>
                 <StoryInput addStory={this.props.addStory} plan={this.props.plan} />
-                <Stories deletePlan={this.props.deletePlan} plan={this.props.plan} />
+                <Stories deletePlan={this.props.deletePlan} stories={this.props.stories} />
        </div>
 
     );
@@ -40,7 +40,8 @@ StoriesContainer.defaultProps = {
 const mapStateToProps = (state,ownprops) => { 
   const url = ownprops.match.params.url
   const plan = state.plans.find(plan => plan.url === url) 
-  return {plan }
+  const stories = state.stories
+  return {plan, stories }
 }
 
 const mapDispatchToProps = dispatch => {

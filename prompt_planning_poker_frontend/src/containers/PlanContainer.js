@@ -8,20 +8,18 @@ import { getPlan, getPlans, addPlan, deletePlan } from '../actions/planActions'
 
 class PlanContainer extends Component {
 
-  state = {plan:{}}
 
-  componentDidMount() {
-    
-    this.setState({
-      plan: this.props.plans.find(plan => plan.url === this.props.match.params.url)
-      Figure out how to get current plan from plans using url!
-  })
-}
+  getPlan = () => {
+    const plan = this.props.plans.find(plan => plan.url === this.props.match.params.url)
+
+    return plan
+  }
+
 
   render() {
     return (
          <div>
-           <PlanHeader deletePlan={this.props.deletePlan} plan={this.props.plan} />
+           <PlanHeader deletePlan={this.props.deletePlan} plan={this.getPlan()} />
            <StoryContainer plan={this.props.plan}></StoryContainer>
        </div>
     );

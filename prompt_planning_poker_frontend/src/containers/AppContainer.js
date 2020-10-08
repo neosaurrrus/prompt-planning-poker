@@ -39,7 +39,7 @@ class AppContainer extends Component {
               <PlanInput addPlan={this.props.addPlan} getPlanUrl={this.getPlanUrl} />
             </Route>
             <Route path="/plans/:url">
-            <PlanContainer deletePlan={this.props.deletePlan}  />
+            <PlanContainer deletePlan={this.props.deletePlan} plans={this.props.plans} />
             </Route> 
           </Switch>
         </div>
@@ -50,14 +50,14 @@ class AppContainer extends Component {
   }
 }
 
-AppContainer.defaultProps= {
-  plans: [{id:"not loaded",
-           url:"not loaded"}]
-}
-
-// const mapStateToProps = state => { 
-//   return {plans: state.plans}
+// AppContainer.defaultProps= {
+//   plans: [{id:"not loaded",
+//            url:"not loaded"}]
 // }
+
+const mapStateToProps = state => { 
+  return {plans: state.plans}
+}
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -67,4 +67,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(AppContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);

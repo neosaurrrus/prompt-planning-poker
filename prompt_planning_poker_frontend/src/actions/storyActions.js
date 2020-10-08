@@ -1,11 +1,10 @@
 import cuid from 'cuid'
 
-export const getStories = (planUrl) => {
-
+export const getStories = (plan) => {
     return (dispatch) => {
         dispatch({ type: 'LOADING_STORIES'})
 
-    fetch(`http://localhost:3000/plans/${planURL}/stories`)
+    fetch(`http://localhost:3000/plans/${plan.url}/stories`)
     .then(resp => resp.json())
     .then(res => {
         dispatch({type: 'GET_STORIES', stories: res})
@@ -13,11 +12,12 @@ export const getStories = (planUrl) => {
     .catch(err => console.log(err))
     }
 }
-export const addStory = (story, planURL) => {
-    const data = {...story}
+export const addStory = (story, plan) => {
+    debugger
+    const data = {...story, url:plan.url}
     return (dispatch) => {
         dispatch({ type: 'LOADING_STORIES'})
-    fetch(`http://localhost:3000/plans/${planURL}/stories`, {
+    fetch(`http://localhost:3000/plans/${plan.url}/stories`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -27,7 +27,7 @@ export const addStory = (story, planURL) => {
     })
     .then(resp => resp.json())
     .then(res => {
-        fetch(`http://localhost:3000/plans/${planURL}/stories`)
+        fetch(`http://localhost:3000/plans/${plan.url}/stories`)
         .then(resp => resp.json())
         .then(res => {
             dispatch({type: 'GET_STORIES', stories: res})

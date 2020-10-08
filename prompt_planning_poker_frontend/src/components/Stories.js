@@ -5,7 +5,7 @@ import Story from './Story'
 
 function Stories(props){
     const renderStories = () => {
-        return props.plan.stories.map( story => <Story story={story}/>)
+        return props.stories.map( story => <Story story={story}/>)
       }
 
     return (

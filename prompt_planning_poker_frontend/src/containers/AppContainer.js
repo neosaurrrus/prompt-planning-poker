@@ -16,7 +16,7 @@ import {
 } from "react-router-dom";
 
 
-class PlansContainer extends Component {
+class AppContainer extends Component {
 
   componentDidMount(){
     this.props.getPlans()
@@ -28,19 +28,21 @@ class PlansContainer extends Component {
 
   render() {
     return (
-      // <div>
-      //   <PlanInput addPlan={this.props.addPlan} />
-      //   <Plans getPlans={this.props.getPlans} deletePlan={this.props.deletePlan} plans={this.props.plans}/>
-      // </div>
         <Router>
         <div>
           <ul>
             <li>
               <Link to="/new-plan">New Plan</Link>
             </li>
+            {/* <li>
+              <Link to="/">Home</Link>
+            </li> */}
           </ul>
 
           <Switch>
+            {/* <Route path="/">
+              <AppContainer/>
+            </Route> */}
             <Route path="/new-plan">
               <PlanInput addPlan={this.props.addPlan} getPlanUrl={this.getPlanUrl} />
             </Route>
@@ -56,7 +58,7 @@ class PlansContainer extends Component {
   }
 }
 
-PlansContainer.defaultProps= {
+AppContainer.defaultProps= {
   plans: [{id:"not loaded",
            url:"not loaded"}]
 }
@@ -73,4 +75,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PlansContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);

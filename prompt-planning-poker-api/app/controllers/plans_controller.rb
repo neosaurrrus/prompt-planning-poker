@@ -5,7 +5,7 @@ class PlansController < ApplicationController
         render json: plans
     end
     def show
-        plan = Plan.find(params[:id])
+        plan = Plan.find_by(params[:url])
         render json: plan
     end
 
@@ -21,7 +21,6 @@ class PlansController < ApplicationController
     end
 
     def destroy
-     
         plan = Plan.find_by(id:params[:id])
         plan.delete
         render json: Plan.all

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import cuid from 'cuid'
 import {Redirect} from 'react-router-dom'
-import Plan from '../components/Plan'
+import PlanContainer from '../containers/PlanContainer'
 
 class PlanInput extends Component {
 
@@ -29,7 +29,7 @@ class PlanInput extends Component {
   render() {
     if (this.state.complete === true) {
       return <Redirect to={this.state.completedUrl}>
-        <Plan plan={{plan:{name:this.state.name, owner: this.state.owner}}}></Plan>
+        <PlanContainer plan={{plan:{name:this.state.name, owner: this.state.owner}}}/>
         </Redirect>
     }
     return (

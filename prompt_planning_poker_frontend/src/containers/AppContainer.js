@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
+
 import PlanInput from '../components/PlanInput';
-import Plans from '../components/Plans';
-import Plan from '../components/Plan';
+import PlanContainer from './PlanContainer';
 
 import { getPlans, addPlan, deletePlan } from '../actions/planActions'
 
@@ -11,8 +11,6 @@ import {
   Switch,
   Route,
   Link,
-  useParams,
-
 } from "react-router-dom";
 
 
@@ -21,10 +19,6 @@ class AppContainer extends Component {
   componentDidMount(){
     this.props.getPlans()
   }
-
-
-
- 
 
   render() {
     return (
@@ -45,7 +39,7 @@ class AppContainer extends Component {
               <PlanInput addPlan={this.props.addPlan} getPlanUrl={this.getPlanUrl} />
             </Route>
             <Route path="/plans/:url">
-            <Plan deletePlan={this.props.deletePlan}  />
+            <PlanContainer deletePlan={this.props.deletePlan}  />
             </Route> 
           </Switch>
         </div>
@@ -61,9 +55,9 @@ AppContainer.defaultProps= {
            url:"not loaded"}]
 }
 
-const mapStateToProps = state => { 
-  return {plans: state.plans}
-}
+// const mapStateToProps = state => { 
+//   return {plans: state.plans}
+// }
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -73,4 +67,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
+export default connect(null, mapDispatchToProps)(AppContainer);

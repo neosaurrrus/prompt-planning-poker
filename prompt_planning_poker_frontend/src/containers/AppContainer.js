@@ -32,17 +32,15 @@ class AppContainer extends Component {
         <div>
           <ul>
             <li>
+              <Link to="/">Prompt Planning Poker</Link>
+            </li>
+            <li>
               <Link to="/new-plan">New Plan</Link>
             </li>
-            {/* <li>
-              <Link to="/">Home</Link>
-            </li> */}
+            
           </ul>
 
           <Switch>
-            {/* <Route path="/">
-              <AppContainer/>
-            </Route> */}
             <Route path="/new-plan">
               <PlanInput addPlan={this.props.addPlan} getPlanUrl={this.getPlanUrl} />
             </Route>

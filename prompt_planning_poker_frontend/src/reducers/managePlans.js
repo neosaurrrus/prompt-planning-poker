@@ -19,7 +19,7 @@ export default function managePlans(state = {plans:[], loading: false }, action)
                 } 
         case 'GET_STORIES':
             console.log("GET_STORIES")
-            
+    
             return {...state, 
                     stories: action.stories,
                     loading: false

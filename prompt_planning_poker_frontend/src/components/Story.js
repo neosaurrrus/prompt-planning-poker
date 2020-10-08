@@ -11,10 +11,10 @@ function Story(props){
       }
     return (
         <div>
-            <h1>{props.story.as_a}</h1>
-            <h1>{props.story.want_to}</h1>
-            <h1>{props.story.i_can}</h1>
-    
+            <p>As a <strong>{props.story.as_a}</strong>,</p>
+            <p>I want to <strong>{props.story.want_to}</strong></p>
+            <p>So I can <strong>{props.story.i_can}</strong></p>
+            <hr></hr>
         </div>
        
     )

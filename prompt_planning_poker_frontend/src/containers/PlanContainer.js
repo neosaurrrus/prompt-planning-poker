@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {Router, withRouter} from 'react-router-dom'
-import PlanHeader from './PlanHeader'
+import PlanHeader from '../components/PlanHeader'
 
 
-class Plan extends Component {
+class PlanContainer extends Component {
 
   getStories = (planUrl) => {
 
@@ -24,14 +24,13 @@ class Plan extends Component {
 
     return (
          <div>
-        <h2>Plan</h2>
-        <PlanHeader deletePlan={this.props.deletePlan} plan={this.props.plan} />
+           <PlanHeader deletePlan={this.props.deletePlan} plan={this.props.plan} />
        </div>
     );
   }
 };
 
-Plan.defaultProps = {
+PlanContainer.defaultProps = {
   plan:{
     name:"",
   owner:""
@@ -43,6 +42,6 @@ const mapStateToProps = (state,ownprops) => {
  
   return {plan: state.plans.find(plan => plan.url === url) }
 }
-export default withRouter(connect(mapStateToProps)(Plan));
+export default withRouter(connect(mapStateToProps)(PlanContainer));
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import PlansContainer from './containers/PlansContainer'
+import AppContainer from './containers/AppContainer'
 
 function App() {
 
@@ -8,8 +8,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Prompt Planning Poker</h1>
-        <PlansContainer />
+        <AppContainer />
       </header>
 
     </div>

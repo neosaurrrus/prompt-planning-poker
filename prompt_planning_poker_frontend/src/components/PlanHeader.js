@@ -9,6 +9,7 @@ function PlanHeader(props){
         props.deletePlan(props.plan.id)
         props.history.push("/");
       }
+
     return (
         <div>
             <h1>{props.plan.name}</h1>
@@ -18,5 +19,12 @@ function PlanHeader(props){
        
     )
 }
+
+PlanHeader.defaultProps = {
+    plan:{
+      name:"Loading...",
+    owner:"Loading.."
+    }
+  }
 
 export default withRouter(PlanHeader)

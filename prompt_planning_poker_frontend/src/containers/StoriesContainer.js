@@ -5,28 +5,15 @@ import StoryInput from "../components/StoryInput"
 import {connect} from 'react-redux'
 import { getStories, addStory, deleteStory } from '../actions/storyActions'
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-} from "react-router-dom";
 class StoriesContainer extends Component {
 
-  componentDidMount(){
-    this.props.getStories(this.props.plan)
-  }
-  
-
   render() {
-
     return (
-    
-         <div>
-           <h2>StoriesContainer</h2>
-                <StoryInput addStory={this.props.addStory} plan={this.props.plan} />
-                <Stories deletePlan={this.props.deletePlan} stories={this.props.stories} />
-       </div>
+      <div>
+        <h2>StoriesContainer</h2>
+            <StoryInput addStory={this.props.addStory} plan={this.props.plan} />
+            <Stories plan={this.props.plan} stories={this.props.stories} deleteStory={this.props.deleteStory}/>
+      </div>
 
     );
   }
@@ -47,7 +34,7 @@ const mapStateToProps = (state,ownprops) => {
 const mapDispatchToProps = dispatch => {
   return {
     getStories: (plan) => dispatch(getStories(plan)),
-    // deletePlan: (id) => dispatch(deletePlan(id)),
+    deleteStory: (id, plan) => dispatch(deleteStory(id, plan)),
     addStory: (story,plan) => dispatch(addStory(story, plan)),
   }
 }

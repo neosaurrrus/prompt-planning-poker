@@ -1,6 +1,7 @@
-import cuid from 'cuid'
 
-export const getStories = (plan) => {
+
+export const getStories = (plan = {url: "testurl1"}) => {
+    
     return (dispatch) => {
         dispatch({ type: 'LOADING_STORIES'})
 
@@ -13,7 +14,7 @@ export const getStories = (plan) => {
     }
 }
 export const addStory = (story, plan) => {
-    debugger
+
     const data = {...story, url:plan.url}
     return (dispatch) => {
         dispatch({ type: 'LOADING_STORIES'})
@@ -41,11 +42,10 @@ export const addStory = (story, plan) => {
     }
 }
 
-export const deleteStory = (id, planURL) => { 
-
+export const deleteStory = (id, plan) => { 
     return (dispatch) => {
         dispatch({ type: 'LOADING_STORIES'})
-    fetch(`http://localhost:3000/plans/${planURL}/stories`, {
+    fetch(`http://localhost:3000/plans/${plan.url}/stories/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",

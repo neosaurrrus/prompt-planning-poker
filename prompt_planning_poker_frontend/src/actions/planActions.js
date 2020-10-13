@@ -1,10 +1,9 @@
-import cuid from 'cuid'
+
 
 export const getPlans = () => {
 
     return (dispatch) => {
         dispatch({ type: 'LOADING_PLANS'})
-
     fetch('http://localhost:3000/plans')
     .then(resp => resp.json())
     .then(res => {
@@ -13,10 +12,11 @@ export const getPlans = () => {
     .catch(err => console.log(err))
     }
 }
-export const getPlan = (id) => {
+export const getPlan = (url) => {
+
     return (dispatch) => {
         dispatch({ type: 'LOADING_PLANS'})
-    fetch(`http://localhost:3000/plans/${id}`)
+    fetch(`http://localhost:3000/plans/${url}`)
     .then(resp => resp.json())
     .then(res => {
         dispatch({type: 'GET_PLAN', plan: res})
@@ -44,9 +44,6 @@ export const addPlan = (plan) => {
             dispatch({type: 'GET_PLANS', plans: res})
               })
         .catch(err => console.log(err))
-
-
-
           })
         .catch((err) => console.log(err))
     }

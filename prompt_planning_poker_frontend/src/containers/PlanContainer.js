@@ -2,25 +2,31 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {Router, withRouter} from 'react-router-dom'
 import PlanHeader from '../components/PlanHeader'
-import StoryContainer from './StoriesContainer'
+import StoriesContainer from './StoriesContainer'
 import { getPlan, getPlans, addPlan, deletePlan } from '../actions/planActions'
 
 
 class PlanContainer extends Component {
-
-
-  getPlan = () => {
-    const plan = this.props.plans.find(plan => plan.url === this.props.match.params.url)
-
-    return plan
+   
+  getPlan = ()=>{
+    // console.log(this.props.plans.find( plan => plan.url === this.props.match.params.url))
+    this.setState = ({
+      plan: this.props.plans.find( plan => plan.url === this.props.match.params.url)
+    })
+    const url = this.props.match.params.url
+    return this.props.plans.find( plan => plan.url === this.props.match.params.url)
   }
 
+  planName = this.props.getPlan(this.props.match.params.url)
 
   render() {
+    const planDetails = this.getPlan()
     return (
          <div>
-           <PlanHeader deletePlan={this.props.deletePlan} plan={this.getPlan()} />
-           <StoryContainer plan={this.props.plan}></StoryContainer>
+           <h1>{this.getPlan}</h1>
+           <h1>{this.getPlan.owner}</h1>
+           <PlanHeader planName={this.planName} deletePlan={this.props.deletePlan} plan={planDetails}/>
+           <StoriesContainer plan={this.getPlan()}></StoriesContainer>
        </div>
     );
   }
@@ -30,7 +36,8 @@ PlanContainer.defaultProps = {
   plan:{
     name:"Error",
   owner:"Error"
-  }
+  },
+  plans:[]
 }
 
 const mapStateToProps = (state,ownprops) => { 

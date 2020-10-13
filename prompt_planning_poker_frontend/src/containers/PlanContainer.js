@@ -20,11 +20,10 @@ class PlanContainer extends Component {
   planName = this.props.getPlan(this.props.match.params.url)
 
   render() {
-    const planDetails = this.getPlan()
     return (
          <div>           
-           <PlanHeader planName={this.planName} deletePlan={this.props.deletePlan} plan={planDetails}/>
-           <StoriesContainer plan={this.getPlan()}></StoriesContainer>
+           <PlanHeader  deletePlan={this.props.deletePlan} plan={this.getPlan()}/>
+           <StoriesContainer getPlan={this.props.getPlan}/>
        </div>
     );
   }
@@ -41,7 +40,7 @@ PlanContainer.defaultProps = {
 const mapStateToProps = (state,ownprops) => { 
   const url = ownprops.match.params.url
  
-  return {plans: state.plans}
+  return {plan: state.plan}
 }
 const mapDispatchToProps = (dispatch,ownProps) => {
   const url = ownProps.match.params.url

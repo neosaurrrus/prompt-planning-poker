@@ -33,7 +33,6 @@ class StoriesController < ApplicationController
         story.delete
         plan = Plan.find_by(url:params[:plan_id])
         stories = plan.stories
-      
         render json: stories
     end
 

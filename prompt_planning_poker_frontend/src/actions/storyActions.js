@@ -55,10 +55,10 @@ export const deleteStory = (id, plan) => {
     })
     .then(resp => resp.json())
     .then(res => {
-        fetch('http://localhost:3000/plans')
+        fetch(`http://localhost:3000/plans/${plan.url}`)
         .then(resp => resp.json())
         .then(res => {
-            dispatch({type: 'GET_STORIES', stories: res})
+            dispatch({type: 'GET_PLAN', plan: plan})
               })
         .catch(err => console.log(err))
           })

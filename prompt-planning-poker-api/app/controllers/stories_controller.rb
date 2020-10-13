@@ -18,7 +18,7 @@ class StoriesController < ApplicationController
     def create 
         plan = Plan.find_by(url:params[:url])
         story = plan.stories.build(story_params)
-        story.save
+        plan.save
         render json: story
     end
 
@@ -30,9 +30,11 @@ class StoriesController < ApplicationController
 
     def destroy
         story = Story.find(params[:id])
-       
         story.delete
-        
+        plan = Plan.find_by(url:params[:plan_id])
+        stories = plan.stories
+      
+        render json: stories
     end
 
     private

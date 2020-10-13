@@ -22,9 +22,7 @@ class PlanContainer extends Component {
   render() {
     const planDetails = this.getPlan()
     return (
-         <div>
-           <h1>{this.getPlan}</h1>
-           <h1>{this.getPlan.owner}</h1>
+         <div>           
            <PlanHeader planName={this.planName} deletePlan={this.props.deletePlan} plan={planDetails}/>
            <StoriesContainer plan={this.getPlan()}></StoriesContainer>
        </div>

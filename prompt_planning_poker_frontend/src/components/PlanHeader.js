@@ -1,6 +1,6 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
-import AppContainer from '../containers/AppContainer';
+
 
 function PlanHeader(props){
     const handleDelete = (e) => {
@@ -9,8 +9,10 @@ function PlanHeader(props){
         props.deletePlan(props.plan.id)
         props.history.push("/");
       }
+    
 
     return (
+   
         <div>
             <h1>{props.plan.name}</h1>
             <h2>{props.plan.owner}</h2>
@@ -23,7 +25,7 @@ function PlanHeader(props){
 PlanHeader.defaultProps = {
     plan:{
       name:"Loading...",
-    owner:"Loading.."
+      owner:"Loading.."
     }
   }
 

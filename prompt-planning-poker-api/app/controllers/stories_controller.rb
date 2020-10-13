@@ -4,8 +4,10 @@ class StoriesController < ApplicationController
 
 
     def index
-        plan = Plan.find_by(params[:url])
+        plan = Plan.find_by(url:params[:plan_id])
+        
         stories = plan.stories
+      
         render json: stories
     end
     def show
@@ -21,13 +23,16 @@ class StoriesController < ApplicationController
     end
 
     def update
+        story = Story.find(params[:id])
         story.update(story_params)
         render json: story
     end
 
     def destroy
+        story = Story.find(params[:id])
+       
         story.delete
-        render json: Story.all
+        
     end
 
     private
@@ -46,7 +51,7 @@ class StoriesController < ApplicationController
   end
 
     def story_params
-        params.require(:story).permit(:as_a, :want_to, :i_can, :url, :plan, :complete)
+        params.require(:story).permit(:as_a, :want_to, :i_can, :url, :plan, :plan_id, :complete)
     end
 
 end

@@ -1,12 +1,14 @@
 
 
 export const getPlans = () => {
-
+    
     return (dispatch) => {
         dispatch({ type: 'LOADING_PLANS'})
     fetch('http://localhost:3000/plans')
     .then(resp => resp.json())
     .then(res => {
+    
+        console.log(res)
         dispatch({type: 'GET_PLANS', plans: res})
           })
     .catch(err => console.log(err))

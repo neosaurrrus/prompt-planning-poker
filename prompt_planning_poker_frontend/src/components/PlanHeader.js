@@ -22,6 +22,7 @@ class PlanHeader extends Component{
           editMode: false
         })
         this.props.editPlan(this.props.plan, {name: this.state.name})
+        this.props.getPlan(this.props.plan.url) 
       }
     handleEdit = (e) => {
         e.preventDefault()
@@ -29,6 +30,7 @@ class PlanHeader extends Component{
          name: this.props.plan.name,
          editMode : true
        })
+       this.props.getPlan(this.props.plan.url)
     }
     handleChange = (e) => {
       this.setState({
@@ -68,7 +70,7 @@ class PlanHeader extends Component{
 const mapStateToProps = state => {return {
   // reviews: state.reviews.filter(review => review.id === this.props.restaurant.id)
   
-  propsPlan: state
+  plan: state.plan
 }}
 
 PlanHeader.defaultProps = {

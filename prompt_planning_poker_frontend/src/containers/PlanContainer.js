@@ -38,7 +38,7 @@ const mapDispatchToProps = (dispatch,ownProps) => {
     getPlan: (id) => dispatch(getPlan(id)),
     deletePlan: (id) => dispatch(deletePlan(id)),
     addPlan: (plan) => dispatch(addPlan(plan)),
-    editPlan: (plan, url) => dispatch(editPlan(plan,url))
+    editPlan: (plan, changedKey) => dispatch(editPlan(plan,changedKey))
   }
 }
 export default withRouter(connect(mapStateToProps,mapDispatchToProps)(PlanContainer));

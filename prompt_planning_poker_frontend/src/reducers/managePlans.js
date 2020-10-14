@@ -21,7 +21,6 @@ export default function managePlans(state = {plans:[], loading: false }, action)
             
             return {...state, 
                     plans: action.plans,
-                    
                     loading: false
                 } 
         case 'GET_STORIES':

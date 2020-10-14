@@ -2,7 +2,7 @@ class PlansController < ApplicationController
 
     def index
         plans = Plan.all
-        render json: plans.to_json(include: :stories)
+        render json: plans
     end
     def show
         plan = Plan.find_by(url:params[:id])
@@ -17,7 +17,7 @@ class PlansController < ApplicationController
     def update
         plan = Plan.find_by(url:params[:id])
         plan.update(plan_params)
-        binding.pry
+      
         render json: plan
     end
 

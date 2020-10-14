@@ -15,8 +15,9 @@ class PlansController < ApplicationController
     end
 
     def update
-        plan = Plan.find(params[:id])
+        plan = Plan.find_by(url:params[:id])
         plan.update(plan_params)
+        binding.pry
         render json: plan
     end
 

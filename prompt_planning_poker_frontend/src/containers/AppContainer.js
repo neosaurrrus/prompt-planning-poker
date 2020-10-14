@@ -63,7 +63,7 @@ const mapDispatchToProps = dispatch => {
   return {
     getPlans: () => dispatch(getPlans()),
     deletePlan: (id) => dispatch(deletePlan(id)),
-    addPlan: (plan) => dispatch(addPlan(plan)),
+    addPlan: (plan) => dispatch(addPlan(plan))
   }
 }
 

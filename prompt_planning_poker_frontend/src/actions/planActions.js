@@ -73,20 +73,23 @@ export const deletePlan = (id) => {
     }
 }
 
-export const editPlan = (plan,url) => { 
+export const editPlan = (plan,changedKey) => { 
     return (dispatch) => {
         dispatch({ type: 'LOADING_PLANS'})
-    fetch(`http://localhost:3000/plans/${url}`, {
+    const newPlan = {...plan, ...changedKey}
+
+
+    fetch(`http://localhost:3000/plans/${plan.url}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json",
         },
-        body: JSON.stringify(plan)
+        body: JSON.stringify(newPlan)
     })
     .then(resp => resp.json())
     .then(res => {
-        fetch(`http://localhost:3000/plans/${url}`)
+        fetch(`http://localhost:3000/plans/${plan.url}`)
         .then(resp => resp.json())
         .then(res => {
             dispatch({type: 'GET_PLAN', plan: res})

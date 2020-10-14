@@ -1,25 +1,37 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {withRouter} from 'react-router-dom'
+import PlanInput from './PlanInput'
 
 
-function PlanHeader(props){
-    const handleDelete = (e) => {
-        let homeUrl = "http://google.com"
+class PlanHeader extends Component{
+
+    handleDelete = (e) => {
         e.preventDefault()
-        props.deletePlan(props.plan.id)
-        props.history.push("/");
+        this.props.deletePlan(this.props.plan.id)
+        this.props.history.push("/");
       }
+    handleEdit = (e) => {
+        e.preventDefault()
+       return <PlanInput plan={this.props.plan} edit="yes" />
+    }
+    renderName = () => {
     
-
-    return (
-   
+    }
+    
+    render(){
+      return (
+  
         <div>
-            <h1>{props.plan.name}</h1>
-            <h2>{props.plan.owner}</h2>
-            <button onClick={handleDelete}>Delete</button>
+
+            <h1>{this.renderName}</h1> <button onClick={this.handleEdit}>Edit</button>
+            <h2>{this.props.plan.owner}</h2>
+            <button onClick={this.handleDelete}>Delete</button>
+           
         </div>
        
     )
+    }
+    
 }
 
 PlanHeader.defaultProps = {

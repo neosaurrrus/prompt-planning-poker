@@ -3,28 +3,30 @@ import React, { Component } from 'react';
 
 class Story extends Component{
      
-    state = {
-        story: this.props.story
+    
+
+    handleDelete = (e) => {
+        e.preventDefault()
+        this.props.deleteStory(this.props.story.id, this.props.plan) 
+    }
+    handleSelect= (e) => {
+        e.preventDefault()
+        this.props.editPlan(this.props.story.id, this.props.plan) 
     }
 
     renderStory = () => { 
-    if (this.state.story) return (
+    if (this.props.story) return (
     <div>
         <p>As a <strong>{this.props.story.as_a}</strong>,</p>
         <p>I want to <strong>{this.props.story.want_to}</strong></p>
         <p>So I can <strong>{this.props.story.i_can}</strong></p>
+        <button onClick={this.handleSelect}>Select Story</button>
         <button onClick={this.handleDelete}>Delete Story</button>
         <hr></hr>
      </div>
     )
     }
-    handleDelete = (e) => {
-        e.preventDefault()
-        this.setState = ({
-            story: {}
-        })
-        this.props.deleteStory(this.props.story.id, this.props.plan) 
-    }
+    
     render(){
         return (
             this.renderStory()

@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import {Redirect} from 'react-router-dom'
-import PlanContainer from '../containers/PlanContainer'
 
 class StoryInput extends Component {
   state = {as_a:"", 

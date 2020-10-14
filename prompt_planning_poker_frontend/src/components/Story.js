@@ -6,7 +6,7 @@ class Story extends Component{
     
 
     handleDelete = (e) => {
-        e.preventDefault()
+        // e.preventDefault() //doesnt make a difference?
         this.props.deleteStory(this.props.story.id, this.props.plan) 
     }
     handleSelect= (e) => {

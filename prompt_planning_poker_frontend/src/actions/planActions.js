@@ -72,3 +72,27 @@ export const deletePlan = (id) => {
     .catch((err) => console.log(err))
     }
 }
+
+export const editPlan = (plan,url) => { 
+    return (dispatch) => {
+        dispatch({ type: 'LOADING_PLANS'})
+    fetch(`http://localhost:3000/plans/${url}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        },
+        body: JSON.stringify(plan)
+    })
+    .then(resp => resp.json())
+    .then(res => {
+        fetch(`http://localhost:3000/plans/${url}`)
+        .then(resp => resp.json())
+        .then(res => {
+            dispatch({type: 'GET_PLAN', plan: res})
+              })
+        .catch(err => console.log(err))
+          })
+    .catch((err) => console.log(err))
+    }
+}

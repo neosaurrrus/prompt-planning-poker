@@ -15,4 +15,9 @@ Story.create(plan_id:1, as_a:"User",want_to:"log in to the system", i_can:"Add, 
 Plan.last.stories.build(as_a:"Admin",want_to:"delete accounts", i_can:"keep database tidy").save
 Plan.first.stories.build(as_a:"Admin",want_to:"add accounts", i_can:"let users do cool things").save
 
+Plan.first.stories.first.players.build(name: 'Tom',score: 5).save
+Plan.first.stories.first.players.build(name: 'Dick',score: 13).save
+Plan.first.stories.first.players.build(name: 'Harriet',score: 3).save
+
+
 

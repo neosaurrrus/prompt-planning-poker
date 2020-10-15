@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import PlanHeader from '../components/PlanHeader'
 import StoriesContainer from './StoriesContainer'
+import PokerContainer from './PokerContainer'
 import { getPlan, getPlans, addPlan, deletePlan,editPlan} from '../actions/planActions'
 
 
@@ -20,6 +21,7 @@ class PlanContainer extends Component {
          <div>           
            <PlanHeader  deletePlan={this.props.deletePlan} getPlan={this.props.getPlan}editPlan={this.props.editPlan} plan={this.props.plan}/>
            <StoriesContainer editPlan={this.props.editPlan} plan={this.props.plan}/>
+           <PokerContainer></PokerContainer>
        </div>
     );
   }

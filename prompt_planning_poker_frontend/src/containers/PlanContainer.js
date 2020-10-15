@@ -21,7 +21,7 @@ class PlanContainer extends Component {
          <div>           
            <PlanHeader  deletePlan={this.props.deletePlan} getPlan={this.props.getPlan}editPlan={this.props.editPlan} plan={this.props.plan}/>
            <StoriesContainer editPlan={this.props.editPlan} plan={this.props.plan}/>
-           <PokerContainer></PokerContainer>
+           <PokerContainer plan={this.props.plan}></PokerContainer>
        </div>
     );
   }

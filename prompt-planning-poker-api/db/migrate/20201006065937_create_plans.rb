@@ -5,6 +5,7 @@ class CreatePlans < ActiveRecord::Migration[6.0]
       t.string :owner
       t.string :url
       t.boolean :complete, :default => false
+      t.integer :selectedStory
       t.timestamps
     end
   end

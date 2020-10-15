@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2020_10_06_070454) do
     t.string "owner"
     t.string "url"
     t.boolean "complete", default: false
+    t.integer "selectedStory"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

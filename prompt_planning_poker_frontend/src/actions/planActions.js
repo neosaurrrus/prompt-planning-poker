@@ -7,8 +7,6 @@ export const getPlans = () => {
     fetch('http://localhost:3000/plans')
     .then(resp => resp.json())
     .then(res => {
-    
-        console.log(res)
         dispatch({type: 'GET_PLANS', plans: res})
           })
     .catch(err => console.log(err))

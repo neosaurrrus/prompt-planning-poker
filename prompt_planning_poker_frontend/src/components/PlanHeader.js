@@ -69,7 +69,6 @@ class PlanHeader extends Component{
 }
 const mapStateToProps = state => {return {
   // reviews: state.reviews.filter(review => review.id === this.props.restaurant.id)
-  
   plan: state.plan
 }}
 
@@ -81,3 +80,4 @@ PlanHeader.defaultProps = {
   }
 
 export default withRouter(connect(mapStateToProps)(PlanHeader))
+

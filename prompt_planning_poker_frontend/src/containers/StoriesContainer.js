@@ -8,12 +8,9 @@ import { getStories, addStory, deleteStory } from '../actions/storyActions'
 
 class StoriesContainer extends Component {
 
- 
-
   render() {
     return (
       <div>
-        <h2>StoriesContainer</h2>
             <StoryInput addStory={this.props.addStory} plan={this.props.plan} />
             <Stories plan={this.props.plan} stories={this.props.plan.stories} deleteStory={this.props.deleteStory}/>
       </div>

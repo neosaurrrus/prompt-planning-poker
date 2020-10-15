@@ -11,9 +11,14 @@ class Story extends Component{
     }
     handleSelect= (e) => {
         e.preventDefault()
-        this.props.editPlan(this.props.story.id, this.props.plan) 
+        this.props.editPlan(this.props.plan, {selectedStory: this.props.story.id}) 
     }
 
+    checkSelected = () =>{
+        if (this.props.plan.selectedStory === this.props.story.id ) {
+            return <h4>Selected</h4>
+        }
+    }
     renderStory = () => { 
     if (this.props.story) return (
     <div>
@@ -29,7 +34,11 @@ class Story extends Component{
     
     render(){
         return (
-            this.renderStory()
+            <div>
+                {this.checkSelected()}
+                {this.renderStory()}
+            </div>
+           
          )
     }
      

@@ -78,7 +78,7 @@ export const editPlan = (plan,changedKey) => {
         dispatch({ type: 'LOADING_PLANS'})
     const newPlan = {...plan, ...changedKey}
 
-
+    debugger
     fetch(`http://localhost:3000/plans/${plan.url}`, {
         method: "PUT",
         headers: {

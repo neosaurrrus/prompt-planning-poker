@@ -30,7 +30,7 @@ class PlansController < ApplicationController
 
     private
     def plan_params
-        params.require(:plan).permit(:id, :name, :owner, :url, :complete)
+        params.require(:plan).permit(:id, :name, :owner, :url, :complete, :selectedStory)
     end
 
 end

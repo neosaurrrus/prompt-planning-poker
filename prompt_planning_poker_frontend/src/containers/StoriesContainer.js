@@ -12,7 +12,7 @@ class StoriesContainer extends Component {
     return (
       <div>
             <StoryInput addStory={this.props.addStory} plan={this.props.plan} />
-            <Stories plan={this.props.plan} stories={this.props.plan.stories} deleteStory={this.props.deleteStory}/>
+            <Stories plan={this.props.plan} stories={this.props.plan.stories} editPlan={this.props.editPlan} deleteStory={this.props.deleteStory}/>
       </div>
     );
   }

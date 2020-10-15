@@ -2,11 +2,12 @@ class PlansController < ApplicationController
 
     def index
         plans = Plan.all
-        render json: plans
+        render json: plans, include: ['stories']
     end
     def show
         plan = Plan.find_by(url:params[:id])
         render json:  plan.to_json(include: :stories)
+        
     end
 
     def create 

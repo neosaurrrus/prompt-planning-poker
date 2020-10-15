@@ -34,7 +34,8 @@ PlanContainer.defaultProps = {
 }
 
 const mapStateToProps = (state, ownProps) => { 
-  return {plans: state.plans, plan: state.plans.find( plan => plan.url === ownProps.match.params.url)
+  return {plans: state.plans,
+         plan: state.plans.find( plan => plan.url === ownProps.match.params.url)
 }
 }
 

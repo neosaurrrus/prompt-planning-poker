@@ -12,7 +12,7 @@ class StoriesController < ApplicationController
     end
     def show
         story = Story.find(params[:id])
-        render json: story
+        render json: story, include: :players
     end
 
     def create 

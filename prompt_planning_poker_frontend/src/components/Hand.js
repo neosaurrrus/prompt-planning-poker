@@ -7,7 +7,7 @@ class Hand extends Component{
   
     state = {
         name: '',
-        score: null
+        score: null,
     }
 
     handleClick = (e) => {
@@ -28,7 +28,16 @@ class Hand extends Component{
         // this.setState({
         //   complete: true,
         //   completedUrl: `/`
-        // this.props.editPlan(this.props.plan, {name: this.state.name})
+        //get player
+        // const newStory = this.props.story
+        // const newPlayers = this.props.story.players.filter(player => player.name !== this.state.name)
+        // newPlayers.push({name: this.state.name, score: this.state.score})
+        // console.log(newPlayers)
+
+
+
+        // const newPlayer = { name: this.state.name, score: this.state.score}
+         this.props.addPlayer(this.props.plan,this.props.story, this.state)
         // })
       }
 

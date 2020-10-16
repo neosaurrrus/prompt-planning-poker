@@ -15,6 +15,11 @@ export default function managePlans(state = {plans:[], loading: false }, action)
                 plan: [...state.plan],
                 loading:true
             }
+        case 'LOADING_PLAYERS':
+            return {
+                ...state,
+                loading:true
+            }
            
         case 'GET_PLANS':
             console.log("GET_PLANS")
@@ -44,6 +49,8 @@ export default function managePlans(state = {plans:[], loading: false }, action)
                     ...state,
                     loading:true
                 }
+
+  
             
 
         default:

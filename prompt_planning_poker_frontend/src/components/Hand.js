@@ -28,7 +28,7 @@ class Hand extends Component{
         // this.setState({
         //   complete: true,
         //   completedUrl: `/`
-        SUBMIT THIS TO THE STORY!
+        // this.props.editPlan(this.props.plan, {name: this.state.name})
         // })
       }
 

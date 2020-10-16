@@ -22,7 +22,7 @@ class PlanHeader extends Component{
           editMode: false
         })
         this.props.editPlan(this.props.plan, {name: this.state.name})
-        this.props.getPlan(this.props.plan.url) 
+        // this.props.getPlan(this.props.plan.url) 
       }
     handleEdit = (e) => {
         e.preventDefault()

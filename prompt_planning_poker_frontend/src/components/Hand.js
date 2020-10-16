@@ -22,8 +22,7 @@ class Hand extends Component{
       }
     
       handleSubmit = (e) => {
-        e.preventDefault()      
-        console.log(this.state)        
+         
         // this.props.addStory(this.state,this.props.plan)
         // this.setState({
         //   complete: true,

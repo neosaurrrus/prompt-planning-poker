@@ -15,9 +15,10 @@ class PlayersController < ApplicationController
         
         story = Story.find(params[:story_id])
 
-        oldPlayer = story.players.find_by(name: params[:player][:name])
-        
-        oldPlayer.delete
+        if story.players.find_by(name: params[:player][:name])
+            story.players.find_by(name: params[:player][:name]).delete
+        end
+  
         player = story.players.build(player_params)
         story.save
     

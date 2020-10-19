@@ -11,7 +11,7 @@ class StoriesContainer extends Component {
   render() {
     return (
     <div className='Stories'>
-      <h3>Stories</h3>
+      <h2>Stories</h2>
       <p>New button</p>
       <p>Selected Story</p>
       <p>Other Stories</p>

@@ -40,7 +40,7 @@ class Hand extends Component{
     render(){
         return (
             <div className='Hand'>
-              <h3>Choose a Card to Play</h3>
+              <h2>Choose a Card to Play</h2>
               <p>Sexy cards</p>
               <input type='text' name='name' onChange={this.handleNameChange} value={this.state.name} placeholder="Enter your Name" />
               <button onClick={this.handleClick} name='1' value='1'>1</button>

@@ -40,16 +40,16 @@ export const addPlayer = (plan, story, player) => {
     }
 }
 
-export const deleteStory = (id, plan) => { 
+export const deletePlayer = (plan, story) => { 
     return (dispatch) => {
         dispatch({ type: 'LOADING_PLAYERS'})
-    fetch(`http://localhost:3000/plans/${plan.url}/players/${id}`, {
+    fetch(`http://localhost:3000/plans/${plan.url}/stories/${story.id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json",
         },
-        body: JSON.stringify(id)
+        body: JSON.stringify(story.id)
     })
     .then(resp => resp.json())
     .then(res => {

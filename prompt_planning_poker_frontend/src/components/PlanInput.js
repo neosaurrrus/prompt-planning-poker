@@ -33,11 +33,13 @@ class PlanInput extends Component {
         </Redirect>
     }
     return (
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="name">Give the plan a name</label>
+        <form className='form-input' onSubmit={this.handleSubmit}>
+          <h1>Create a New Plan</h1>
+          <label htmlFor="name">Give the Plan a Name</label>
           <input type="text" onChange={this.handleChange} name="name" value={this.state.name}/>
-          <label htmlFor="owner">Who are you?</label>
+          <label htmlFor="owner">Enter Your Name</label>
           <input type="text" onChange={this.handleChange} name="owner" value={this.state.owner}/>
+          <br></br>
           <input type="submit"></input>
         </form>
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 
 import PlanInput from '../components/PlanInput';
+import Intro from '../components/Intro'
 import PlanContainer from './PlanContainer';
 
 import { getPlans, addPlan, deletePlan } from '../actions/planActions'
@@ -23,17 +24,18 @@ class AppContainer extends Component {
   render() {
     return (
         <Router>
-        <div>
-          <ul>
-            <li>
-              <Link to="/">Prompt Planning Poker</Link>
-            </li>
-            <li>
+        <nav className='App-header'>
+ 
+              <Link to="/">Prompt-Planning-Poker</Link>
               <Link to="/new-plan">New Plan</Link>
-            </li>
             
-          </ul>
+         
+        
 
+        </nav>
+        <section>
+
+        </section>
           <Switch>
             <Route path="/new-plan">
               <PlanInput addPlan={this.props.addPlan} getPlanUrl={this.getPlanUrl} />
@@ -41,8 +43,11 @@ class AppContainer extends Component {
             <Route path="/plans/:url">
             <PlanContainer deletePlan={this.props.deletePlan} plans={this.props.plans} />
             </Route> 
+            <Route path="/">
+            <Intro></Intro>
+            </Route>
           </Switch>
-        </div>
+      
         </Router>
 
 
@@ -50,10 +55,6 @@ class AppContainer extends Component {
   }
 }
 
-// AppContainer.defaultProps= {
-//   plans: [{id:"not loaded",
-//            url:"not loaded"}]
-// }
 
 const mapStateToProps = state => { 
   return {plans: state.plans}

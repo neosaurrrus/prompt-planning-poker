@@ -13,8 +13,8 @@
   background: #FDFCDC;
   --whiteText: #e8fafa;
   --darkText: #3a3636;
-  --lightShade: rgba(0,0,0,0.2);
-  --storyShade: rgba(0, 129, 167, 0.3);
+
+  --darkShade: rgba(0, 129, 167, 0.5);
   --lightShade: rgba(0, 129, 167, 0.3);
  
   
@@ -25,6 +25,7 @@
   box-sizing: border-box;
   color: var(--whiteText);
   font-family: 'Archivo Narrow', sans-serif;
+  line-height: 0.5
   
 }
 
@@ -46,7 +47,6 @@ button, input {
   align-items: center;
   justify-content: space-between;
   font-size: calc(2px + 2vmin);
-
   text-align: right;
 }
 
@@ -60,74 +60,124 @@ a{
 .grid-container {
   height:95vh; 
   display: grid;
-  font-size: calc(2px + 2vmin);
+  font-size: calc(4px + 2vmin);
   grid-template-columns: 8fr 5fr;
   grid-template-rows:  5fr 30fr 1fr;
-  gap: 0px 0px;
+  gap: 10px 10px;
   grid-template-areas:
     "Plan Plan"
     "Game  Stories"
     "Footer Footer";
 }
-.Plan { grid-area: Plan; background: var(--plan); min-height:20vh; display: flex; line-height: 1;
+.Plan { grid-area: Plan; 
+  background: var(--plan);
+   min-height:20vh;
+    display: flex; 
+ 
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  line-height: 0;
 }
-.Stories { grid-area: Stories; 
-  background:var(--storyShade); 
-  max-height:90vh;
-   color: var(--darkText);
-    overflow-y: scroll;
-     font-weight: normal;
-     margin: 15px;
-    
-  }
-
-.Game { grid-area: Game; background: var(--game); color: var(--darkText) ;font-weight: normal; display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-between;}
-.Footer { grid-area: Footer; background: var(--toptail); font-size: calc(2px + 2vmin); }
 
 
-
-.Plan button{
+.Plan button, .Plan input{
   background: none;
   color: var(--offWhite);
   font-size: calc(1px + 2vmin);
-  padding: 5px;
+  padding: 3px;
   width: calc(100px + 2vmin);
   border: 2px solid var(--whiteText);
   margin-right: 10px;
 
 }
 #plan-edit{
-  margin: 10px;
-  font-size: calc(10px + 2vmin);
+  font-family: 'Julius Sans One', sans-serif;
+  margin: 5px;
+  font-size: calc(14px + 2vmin);
   font-weight: bold;
+  width: calc(400px + 2vmin);
   background: none;
   border: 2px solid var(--whiteText);
   color: var(--offWhite);
   text-align: center;
+  padding: 5px;
 }
 
-.Table {
-  width: 95%;
-  background: var(--lightShade);
-  min-height: 60%;
-  margin: 15px;
+.Stories { 
+  grid-area: Stories; 
+  background:var(--lightShade); 
+  max-height:90vh;
+  color: var(--darkText);
+  overflow-y: scroll;
+  font-weight: normal;
+  margin-right: 5px;
+  
 }
-.Hand {
-  width: 95%;
+
+.Game { grid-area: Game; background: var(--game); color: var(--darkText) ;font-weight: normal; display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.Footer { grid-area: Footer; background: var(--toptail); font-size: calc(2px + 2vmin); }
+
+
+
+
+.Table {
+  width: 100%;
   background: var(--lightShade);
-  min-height: 30%;
-  margin: 15px;
+  min-height: 70%;
+
+  overflow-y: scroll;                          
+
+}
+
+.player{
+  background: var(--lightShade);
+  width: 60%;
+  height: 30px;
+  padding: 10px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.player span {
+  width: 40%;
+}
+
+
+.Hand {
+  width: 100%;
+  background: var(--lightShade);
+  min-height: 25%;
+  margin-top: 2%;
+
+
 }
 
 nav *{
-  margin: 0 30px;
+  margin: 0 5px;
   text-decoration: none;
+  background: none;
+}
+
+nav input{
+  font-family: 'Julius Sans One', sans-serif;
+  color: var(--whiteText);
+  background: var(--darkShade);
+  font-size: 1em;
+  border: none;
+  padding: 3px;
+}
+
+::placeholder{
+  color: var(--whiteText);
 }
 
 
@@ -176,3 +226,24 @@ article {
 }
 
 
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--lightShade)
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--darkShade)
+}

@@ -57,7 +57,8 @@ class PlanHeader extends Component{
         return (
            <div className='Plan'>
              <form onSubmit={this.handleSubmit}>
-              <h2> <input id='plan-edit' type="text" onChange={this.handleChange} name="name" value={this.state.name}/><input type="submit" value="💾"/></h2>
+              <input id='plan-edit'type="text" onChange={this.handleChange} name="name" value={this.state.name}/><br></br>
+              <input id='plan-save' type="submit" value="save"/>
             </form>
           </div>
          

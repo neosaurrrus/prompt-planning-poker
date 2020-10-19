@@ -9,8 +9,8 @@ class Player extends Component{
 
     render(){
         return (
-            <div>
-                {this.props.player.name} - {this.renderReveal()}
+            <div className='player'>
+                <span>{this.props.player.name}</span>  <span>{this.renderReveal()}</span>
             </div>
            
          )

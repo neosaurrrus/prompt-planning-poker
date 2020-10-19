@@ -15,9 +15,8 @@ class PokerContainer extends Component {
   render() {
     return (
       <div className='Game'>
-        <h2>Poker</h2>
-        <Table plan={this.props.plan} deletePlayers={this.props.deletePlayers} story={this.getStory()}/>
-        <Hand plan={this.props.plan} story={this.getStory()} addPlayer={this.props.addPlayer}  /> Need to add addScoreMethod
+        <Table id="table" plan={this.props.plan} deletePlayers={this.props.deletePlayers} story={this.getStory()}/>
+        <Hand id="Hand" plan={this.props.plan} story={this.getStory()} addPlayer={this.props.addPlayer}  /> 
       </div>
     );
   }

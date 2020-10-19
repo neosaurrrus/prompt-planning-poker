@@ -27,6 +27,7 @@ class AppContainer extends Component {
         <nav className='App-header'>
  
               <Link to="/">Prompt-Planning-Poker</Link>
+              <span><label>Name:</label><input type='text' placeholder='Let this hold name'></input></span>
               <Link to="/new-plan">New Plan</Link>
             
          

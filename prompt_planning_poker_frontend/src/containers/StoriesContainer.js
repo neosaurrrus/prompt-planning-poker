@@ -11,6 +11,10 @@ class StoriesContainer extends Component {
   render() {
     return (
     <div className='Stories'>
+      <h3>Stories</h3>
+      <p>New button</p>
+      <p>Selected Story</p>
+      <p>Other Stories</p>
         <StoryInput addStory={this.props.addStory} plan={this.props.plan} />
         <Stories plan={this.props.plan} stories={this.props.plan.stories} editPlan={this.props.editPlan} deleteStory={this.props.deleteStory}/>
   </div>

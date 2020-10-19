@@ -29,7 +29,9 @@ class Table extends Component{
     render(){
         return (
             <div className='Table'>
-                <h2>Table</h2>
+                <h3>Current Table</h3>
+                <p> Score</p>
+                <p> divs for each player </p>
                 {this.renderPlayers()}
                 <button onClick={this.handleReveal} name='reveal'>Reveal</button>
                 <button onClick={this.handleReset} name='reset'>Reset</button> 

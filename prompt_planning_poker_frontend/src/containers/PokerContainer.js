@@ -3,6 +3,7 @@ import Table from '../components/Table'
 import Hand from '../components/Hand'
 import {connect} from 'react-redux'
 import {addPlayer} from '../actions/playerActions'
+import {deletePlayers} from '../actions/storyActions'
 
 class PokerContainer extends Component {
 
@@ -15,8 +16,8 @@ class PokerContainer extends Component {
     return (
       <div>
         <h2>Poker</h2>
-        <Table plan={this.props.plan} story={this.getStory()}/>
-        <Hand  plan={this.props.plan} story={this.getStory()} addPlayer={this.props.addPlayer}  /> Need to add addScoreMethod
+        <Table plan={this.props.plan} deletePlayers={this.props.deletePlayers} story={this.getStory()}/>
+        <Hand plan={this.props.plan} story={this.getStory()} addPlayer={this.props.addPlayer}  /> Need to add addScoreMethod
       </div>
     );
   }
@@ -33,6 +34,7 @@ class PokerContainer extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     addPlayer: (plan,story,player) => dispatch(addPlayer(plan, story, player)),
+    deletePlayers: (plan,story) => dispatch(deletePlayers(plan, story)),
   }
 }
 export default connect(null, mapDispatchToProps)(PokerContainer)

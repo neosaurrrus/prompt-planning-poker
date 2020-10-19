@@ -3,7 +3,7 @@ class CreatePlayers < ActiveRecord::Migration[6.0]
     create_table :players do |t|
       t.string :name
       t.integer :score
-      t.references :story, null: false, foreign_key: true
+      t.references :story, foreign_key: true
       t.timestamps
     end
   end

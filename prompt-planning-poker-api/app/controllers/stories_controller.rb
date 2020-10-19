@@ -24,6 +24,8 @@ class StoriesController < ApplicationController
 
     def update
         story = Story.find(params[:id])
+        story.players.delete_all
+
         story.update(story_params)
         render json: story
     end
@@ -37,7 +39,6 @@ class StoriesController < ApplicationController
     end
 
     private
-
   
   def get_plan
    
@@ -52,7 +53,7 @@ class StoriesController < ApplicationController
   end
 
     def story_params
-        params.require(:story).permit(:as_a, :want_to, :i_can, :url, :plan, :plan_id, :complete)
+        params.require(:story).permit(:as_a, :want_to, :i_can, :url, :plan, :plan_id, :id, :score, :created_at, :updated_at, :complete)
     end
 
 end

@@ -5,13 +5,17 @@
   --game: #e9c46a;
   --stories: #f4a261; */
 
-  --toptail: #0081A7;
-  --plan: #00AFB9;
+  --toptail: rgb(0, 129, 167);
+  --plan: #00afb9;
   --game: #FDFCDC;
   --game: #FDFCDC;
-  background: #FED9B7;
+  --stories: #FED9B7;
+  background: #FDFCDC;
   --whiteText: #e8fafa;
   --darkText: #3a3636;
+  --lightShade: rgba(0,0,0,0.2);
+  --storyShade: rgba(0, 129, 167, 0.3);
+  --lightShade: rgba(0, 129, 167, 0.3);
   font-weight: bold
 
 }
@@ -57,14 +61,27 @@ a{
     "Game  Stories"
     "Footer Footer";
 }
-.Plan { grid-area: Plan; background: var(--plan); min-height:20vh; display: flex;; line-height: 1;
+.Plan { grid-area: Plan; background: var(--plan); min-height:20vh; display: flex; line-height: 1;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.Stories { grid-area: Stories; background:var(--stories); max-height:90vh; color: var(--darkText); overflow-y: scroll; font-weight: normal}
-.Game { grid-area: Game; background: var(--game); color: var(--darkText) ;font-weight: normal}
+.Stories { grid-area: Stories; 
+  background:var(--storyShade); 
+  max-height:90vh;
+   color: var(--darkText);
+    overflow-y: scroll;
+     font-weight: normal;
+     margin: 15px;
+    
+  }
+
+.Game { grid-area: Game; background: var(--game); color: var(--darkText) ;font-weight: normal; display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;}
 .Footer { grid-area: Footer; background: var(--toptail); font-size: calc(2px + 2vmin); }
+
 
 
 .Plan button{
@@ -87,6 +104,18 @@ a{
   text-align: center;
 }
 
+.Table {
+  width: 90%;
+  background: var(--lightShade);
+  min-height: 60%;
+  margin: 15px;
+}
+.Hand {
+  width: 90%;
+  background: var(--lightShade);
+  min-height: 30%;
+  margin: 15px;
+}
 
 nav *{
   margin: 0 30px;

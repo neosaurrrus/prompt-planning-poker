@@ -16,16 +16,21 @@
   --lightShade: rgba(0,0,0,0.2);
   --storyShade: rgba(0, 129, 167, 0.3);
   --lightShade: rgba(0, 129, 167, 0.3);
-  font-weight: bold
-
+ 
+  
+  
 }
 .App {
   text-align: center;
   box-sizing: border-box;
   color: var(--whiteText);
+  font-family: 'Archivo Narrow', sans-serif;
   
 }
 
+button, input {
+  font-family: 'Archivo Narrow', sans-serif;
+}
 
 /* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -34,26 +39,29 @@
 } */
 
 .App-header {
+  font-family: 'Julius Sans One', sans-serif;
   background-color: var(--toptail);
   min-height: 5vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: calc(8px + 2vmin);
+  font-size: calc(2px + 2vmin);
 
   text-align: right;
 }
 
-
+h1, h2, h3 {
+  font-family: 'Julius Sans One', sans-serif;
+}
 a{
-  font-weight: bold;
+ 
   color: var(--whiteText)
 }
 .grid-container {
   height:95vh; 
   display: grid;
-  font-size: calc(8px + 2vmin);
-  grid-template-columns: 2fr 1fr;
+  font-size: calc(2px + 2vmin);
+  grid-template-columns: 8fr 5fr;
   grid-template-rows:  5fr 30fr 1fr;
   gap: 0px 0px;
   grid-template-areas:
@@ -87,7 +95,7 @@ a{
 .Plan button{
   background: none;
   color: var(--offWhite);
-  font-size: calc(6px + 2vmin);
+  font-size: calc(1px + 2vmin);
   padding: 5px;
   width: calc(100px + 2vmin);
   border: 2px solid var(--whiteText);
@@ -105,13 +113,13 @@ a{
 }
 
 .Table {
-  width: 90%;
+  width: 95%;
   background: var(--lightShade);
   min-height: 60%;
   margin: 15px;
 }
 .Hand {
-  width: 90%;
+  width: 95%;
   background: var(--lightShade);
   min-height: 30%;
   margin: 15px;

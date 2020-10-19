@@ -1,16 +1,19 @@
 :root{
 
-  --toptail: #264653;
+  /* --toptail: #264653;
   --plan: #2A9D8F;
   --game: #e9c46a;
-  --stories: #f4a261;
+  --stories: #f4a261; */
 
   --toptail: #0081A7;
   --plan: #00AFB9;
   --game: #FDFCDC;
-  --stories: #FED9B7;
-  --whiteText: #c9ffff;
+  --game: #FDFCDC;
+  background: #FED9B7;
+  --whiteText: #e8fafa;
   --darkText: #3a3636;
+  font-weight: bold
+
 }
 .App {
   text-align: center;
@@ -33,7 +36,7 @@
   align-items: center;
   justify-content: space-between;
   font-size: calc(8px + 2vmin);
-  color: white;
+
   text-align: right;
 }
 
@@ -59,8 +62,8 @@ a{
   align-items: center;
   justify-content: center;
 }
-.Stories { grid-area: Stories; background:var(--stories); max-height:90vh; color: var(--darkText); overflow-y: scroll;}
-.Game { grid-area: Game; background: var(--game); color: var(--darkText)}
+.Stories { grid-area: Stories; background:var(--stories); max-height:90vh; color: var(--darkText); overflow-y: scroll; font-weight: normal}
+.Game { grid-area: Game; background: var(--game); color: var(--darkText) ;font-weight: normal}
 .Footer { grid-area: Footer; background: var(--toptail); font-size: calc(2px + 2vmin); }
 
 
@@ -96,31 +99,35 @@ nav *{
 
 .form-input {
   margin: 50px auto;
-  padding: 50px;
-  border:5px solid #6a6a6a;
+  padding: 20px;
+  border:5px var(--stories) solid;
   min-height: 10vh;
-  width: 60%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   font-size: calc(8px + 2vmin);
-  color: #6a6a6a;
+  color: var(--whiteText);
   text-align: center;
+  background: var(--toptail)
 }
 
 .form-input * {
   padding: 25px;
+  
 }
 
 .form-input input {
   font-size: calc(8px + 2vmin);
-  background: transparent;
-  border: 3px #6a6a6a solid;
-  color: #6a6a6a;
+  background: var(--plan);
+  border: 5px solid var(--stories);
+  color: var(--whiteText);
+
 }
 
 article {
+  color: var(--darkText);
   margin: 50px auto;
   width: 80%;
   min-height: 50vh;
@@ -128,7 +135,7 @@ article {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  font-size: calc(8px + 2vmin);
+  font-size: calc(10px + 2vmin);
 }
 
 

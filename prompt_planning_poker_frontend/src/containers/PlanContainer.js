@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import PlanHeader from '../components/PlanHeader'
+import Footer from '../components/Footer'
 import StoriesContainer from './StoriesContainer'
 import PokerContainer from './PokerContainer'
 import { getPlan, getPlans, addPlan, deletePlan,editPlan} from '../actions/planActions'
@@ -18,10 +19,11 @@ class PlanContainer extends Component {
   }
   render() {
     return (
-         <div>           
+         <div className='grid-container'>           
            <PlanHeader  deletePlan={this.props.deletePlan} getPlan={this.props.getPlan}editPlan={this.props.editPlan} plan={this.props.plan}/>
            <StoriesContainer editPlan={this.props.editPlan} plan={this.props.plan}/>
            <PokerContainer plan={this.props.plan}></PokerContainer>
+           <Footer plan={this.props.plan}></Footer>
        </div>
     );
   }

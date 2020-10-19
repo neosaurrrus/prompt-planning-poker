@@ -10,10 +10,10 @@ class StoriesContainer extends Component {
 
   render() {
     return (
-      <div>
-            <StoryInput addStory={this.props.addStory} plan={this.props.plan} />
-            <Stories plan={this.props.plan} stories={this.props.plan.stories} editPlan={this.props.editPlan} deleteStory={this.props.deleteStory}/>
-      </div>
+    <div className='Stories'>
+        <StoryInput addStory={this.props.addStory} plan={this.props.plan} />
+        <Stories plan={this.props.plan} stories={this.props.plan.stories} editPlan={this.props.editPlan} deleteStory={this.props.deleteStory}/>
+  </div>
     );
   }
 };

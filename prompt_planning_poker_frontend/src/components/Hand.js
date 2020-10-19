@@ -32,9 +32,6 @@ class Hand extends Component{
         // const newPlayers = this.props.story.players.filter(player => player.name !== this.state.name)
         // newPlayers.push({name: this.state.name, score: this.state.score})
         // console.log(newPlayers)
-
-
-
         // const newPlayer = { name: this.state.name, score: this.state.score}
          this.props.addPlayer(this.props.plan,this.props.story, this.state)
         // })
@@ -42,7 +39,7 @@ class Hand extends Component{
 
     render(){
         return (
-            <div>
+            <div className='Hand'>
               <h3>Hand (player name, cards)</h3>
               <input type='text' name='name' onChange={this.handleNameChange} value={this.state.name} placeholder="Enter your Name" />
               <button onClick={this.handleClick} name='1' value='1'>1</button>

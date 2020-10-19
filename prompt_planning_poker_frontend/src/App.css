@@ -1,38 +1,134 @@
+:root{
+
+  --toptail: #264653;
+  --plan: #2A9D8F;
+  --game: #e9c46a;
+  --stories: #f4a261;
+
+  --toptail: #0081A7;
+  --plan: #00AFB9;
+  --game: #FDFCDC;
+  --stories: #FED9B7;
+  --whiteText: #c9ffff;
+  --darkText: #3a3636;
+}
 .App {
   text-align: center;
+  box-sizing: border-box;
+  color: var(--whiteText);
+  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
 .App-header {
-  background-color: #6a6a6a;
-  min-height: 100vh;
+  background-color: var(--toptail);
+  min-height: 5vh;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: calc(8px + 2vmin);
+  color: white;
+  text-align: right;
+}
+
+
+a{
+  font-weight: bold;
+  color: var(--whiteText)
+}
+.grid-container {
+  height:95vh; 
+  display: grid;
+  font-size: calc(8px + 2vmin);
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows:  5fr 30fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "Plan Plan"
+    "Game  Stories"
+    "Footer Footer";
+}
+.Plan { grid-area: Plan; background: var(--plan); min-height:20vh; display: flex;; line-height: 1;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.Stories { grid-area: Stories; background:var(--stories); max-height:90vh; color: var(--darkText); overflow-y: scroll;}
+.Game { grid-area: Game; background: var(--game); color: var(--darkText)}
+.Footer { grid-area: Footer; background: var(--toptail); font-size: calc(2px + 2vmin); }
+
+
+.Plan button{
+  background: none;
+  color: var(--offWhite);
+  font-size: calc(6px + 2vmin);
+  padding: 5px;
+  width: calc(100px + 2vmin);
+  border: 2px solid var(--whiteText);
+  margin-right: 10px;
+
+}
+#plan-edit{
+  margin: 10px;
   font-size: calc(10px + 2vmin);
-  color: white;
+  font-weight: bold;
+  background: none;
+  border: 2px solid var(--whiteText);
+  color: var(--offWhite);
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+
+nav *{
+  margin: 0 30px;
+  text-decoration: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+
+
+.form-input {
+  margin: 50px auto;
+  padding: 50px;
+  border:5px solid #6a6a6a;
+  min-height: 10vh;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: calc(8px + 2vmin);
+  color: #6a6a6a;
+  text-align: center;
 }
+
+.form-input * {
+  padding: 25px;
+}
+
+.form-input input {
+  font-size: calc(8px + 2vmin);
+  background: transparent;
+  border: 3px #6a6a6a solid;
+  color: #6a6a6a;
+}
+
+article {
+  margin: 50px auto;
+  width: 80%;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: calc(8px + 2vmin);
+}
+
+

@@ -34,7 +34,7 @@ class Story extends Component{
     
     render(){
         return (
-            <div>
+            <div className='story'>
                 {this.checkSelected()}
                 {this.renderStory()}
             </div>

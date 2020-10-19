@@ -8,14 +8,35 @@ import { getStories, addStory, deleteStory } from '../actions/storyActions'
 
 class StoriesContainer extends Component {
 
+  state = {
+    formDisplay: 'none',
+    buttonText: 'Add Stories',
+    
+  }
+
+  handleAddStory = () =>{
+    if (this.state.formDisplay == 'none') {
+      
+      this.setState({
+        formDisplay: 'flex',
+        buttonText: 'Done'
+      })
+    } else {
+      this.setState({
+        formDisplay: 'none',
+        buttonText: 'Add Stories'
+      })
+    }
+  }
+
+
   render() {
     return (
     <div className='Stories'>
       <h2>Stories</h2>
-      <p>New button</p>
-      <p>Selected Story</p>
-      <p>Other Stories</p>
-        <StoryInput addStory={this.props.addStory} plan={this.props.plan} />
+        <button onClick={this.handleAddStory}>{this.state.buttonText}</button>
+        <StoryInput addStory={this.props.addStory} formDisplay={this.state.formDisplay} plan={this.props.plan} />
+   
         <Stories plan={this.props.plan} stories={this.props.plan.stories} editPlan={this.props.editPlan} deleteStory={this.props.deleteStory}/>
   </div>
     );

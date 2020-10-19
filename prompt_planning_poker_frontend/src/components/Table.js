@@ -28,7 +28,7 @@ class Table extends Component{
     }
     render(){
         return (
-            <div>
+            <div className='Table'>
                 <h2>Table</h2>
                 {this.renderPlayers()}
                 <button onClick={this.handleReveal} name='reveal'>Reveal</button>

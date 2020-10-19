@@ -37,33 +37,31 @@ class PlanHeader extends Component{
         [e.target.name]: e.target.value,
       })
     }
-    renderName = () => {
-      if (!this.state.editMode){
-        return <div>
-          <h1>{this.props.plan.name}</h1> 
-          <button onClick={this.handleEdit}>Edit</button>
-        </div> 
-      } else {
-        return (
-          <form onSubmit={this.handleSubmit}>
-            <input type="text" onChange={this.handleChange} name="name" value={this.state.name}/>
-            <input type="submit" value="Save"/>
-         </form>
 
-        )
-      } 
+
+    renderName = () => {
+     
     
     }
     
     render(){
-      return (
-        <div>
-            <h1>{this.renderName()}</h1> 
-            <h2>{this.props.plan.owner}</h2>
-            <button onClick={this.handleDelete}>Delete</button>
+      if (!this.state.editMode){
+        return (
+        <div className='Plan'>
+          <h2>{this.props.plan.name}</h2>
+          <span><button onClick={this.handleEdit}>Edit</button><button onClick={this.handleDelete}>Delete</button></span>
         </div>
-       
-     )
+        )
+      } else {
+        return (
+           <div className='Plan'>
+             <form onSubmit={this.handleSubmit}>
+              <h2> <input id='plan-edit' type="text" onChange={this.handleChange} name="name" value={this.state.name}/><input type="submit" value="💾"/></h2>
+            </form>
+          </div>
+         
+        )
+      } 
     }
     
 }

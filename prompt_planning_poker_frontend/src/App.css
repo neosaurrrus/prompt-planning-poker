@@ -16,6 +16,7 @@
 
   --darkShade: rgba(0, 129, 167, 0.5);
   --lightShade: rgba(0, 129, 167, 0.3);
+  --lighestShade: rgba(0, 129, 167, 0.1);
  
   
   
@@ -33,12 +34,6 @@ button, input {
   font-family: 'Archivo Narrow', sans-serif;
 }
 
-/* @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-} */
-
 .App-header {
   font-family: 'Julius Sans One', sans-serif;
   background-color: var(--toptail);
@@ -46,7 +41,7 @@ button, input {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: calc(2px + 2vmin);
+  font-size: calc(0px + 2vmin);
   text-align: right;
 }
 
@@ -114,6 +109,22 @@ a{
   margin-right: 5px;
   
 }
+.story-input{
+  transition: all 1s;
+  flex-direction: column;
+  width: 90%;
+  background:var(--lightShade);
+  align-items: center;
+  margin: 0 auto;
+  line-height: 0.5;
+  padding: 10px;
+}
+
+.story{
+  background: var(--lighestShade);
+  width:90%;
+  margin: 0 auto;
+}
 
 .Game { grid-area: Game; background: var(--game); color: var(--darkText) ;font-weight: normal; display: flex;
   align-items: center;
@@ -132,7 +143,6 @@ a{
   width: 100%;
   background: var(--lightShade);
   min-height: 70%;
-
   overflow-y: scroll;                          
 
 }

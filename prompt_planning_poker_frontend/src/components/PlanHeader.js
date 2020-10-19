@@ -48,7 +48,8 @@ class PlanHeader extends Component{
       if (!this.state.editMode){
         return (
         <div className='Plan'>
-          <h2>{this.props.plan.name}</h2>
+          <h1>{this.props.plan.name}</h1>
+          <p>Total Score: INSERT HERE</p>
           <span><button onClick={this.handleEdit}>Edit</button><button onClick={this.handleDelete}>Delete</button></span>
         </div>
         )

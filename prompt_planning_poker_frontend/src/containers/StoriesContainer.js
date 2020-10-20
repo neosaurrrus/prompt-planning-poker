@@ -17,12 +17,12 @@ class StoriesContainer extends Component {
     if (this.state.formDisplay == 'none') {
       this.setState({
         formDisplay: 'flex',
-        buttonText: 'Done'
+        buttonText: 'Done Adding Stories'
       })
     } else {
       this.setState({
         formDisplay: 'none',
-        buttonText: 'Add Stories'
+        buttonText: 'Add More Stories'
       })
     }
   }

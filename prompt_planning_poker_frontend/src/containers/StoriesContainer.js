@@ -29,13 +29,16 @@ class StoriesContainer extends Component {
 
 
   render() {
+    
+    console.log(this.props.plan)
     return (
     <div className='Stories'>
-      <h2>Stories</h2>
+      <h2>{this.props.stories.length} Stories</h2>
+      <p></p>
         <button onClick={this.handleAddStory}>{this.state.buttonText}</button>
-        <StoryInput addStory={this.props.addStory} formDisplay={this.state.formDisplay} plan={this.props.plan} />
-   
-        <Stories plan={this.props.plan} stories={this.props.plan.stories} editPlan={this.props.editPlan} deleteStory={this.props.deleteStory}/>
+        <StoryInput addStory={this.props.addStory} formDisplay={this.state.formDisplay} buttonText={this.state.buttonText} plan={this.props.plan} />
+        <Stories plan={this.props.plan} stories={this.props.stories} editPlan={this.props.editPlan} deleteStory={this.props.deleteStory}/>
+
   </div>
     );
   }
@@ -46,11 +49,12 @@ class StoriesContainer extends Component {
     stories:[]
   }
 
-  const mapStateToProps = (state,ownprops) => { 
-    const url = ownprops.match.params.url
-    const plan = state.plans.find(plan => plan.url === url) 
-    return {plan }
-  }
+  
+  const mapStateToProps = state => {return {
+    plan: state.plan,
+    stories: state.stories
+  }}
+
 
   const mapDispatchToProps = dispatch => {
     return {

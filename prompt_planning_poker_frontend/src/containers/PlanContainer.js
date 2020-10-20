@@ -21,7 +21,7 @@ class PlanContainer extends Component {
     return (
          <div className='grid-container'>           
            <PlanHeader  deletePlan={this.props.deletePlan} getPlan={this.props.getPlan}editPlan={this.props.editPlan} plan={this.props.plan}/>
-           <StoriesContainer editPlan={this.props.editPlan} plan={this.props.plan}/>
+           <StoriesContainer stories={this.props.plan.stories} plan={this.props.plan} editPlan={this.props.editPlan} />
            <PokerContainer plan={this.props.plan}></PokerContainer>
            <Footer plan={this.props.plan}></Footer>
        </div>
@@ -40,6 +40,7 @@ PlanContainer.defaultProps = {
 const mapStateToProps = (state, ownProps) => { 
   return {plans: state.plans,
          plan: state.plans.find( plan => plan.url === ownProps.match.params.url)
+
 }
 }
 

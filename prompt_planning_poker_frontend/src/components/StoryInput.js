@@ -14,7 +14,7 @@ class StoryInput extends Component {
     this.setState({
     
         [e.target.name]: e.target.value
-     
+    //  Need to make sure first char is capitalised for owner and plan too
       
     })
   }

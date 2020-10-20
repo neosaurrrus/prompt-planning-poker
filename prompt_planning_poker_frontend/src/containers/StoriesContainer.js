@@ -11,12 +11,10 @@ class StoriesContainer extends Component {
   state = {
     formDisplay: 'none',
     buttonText: 'Add Stories',
-    
   }
 
   handleAddStory = () =>{
     if (this.state.formDisplay == 'none') {
-      
       this.setState({
         formDisplay: 'flex',
         buttonText: 'Done'

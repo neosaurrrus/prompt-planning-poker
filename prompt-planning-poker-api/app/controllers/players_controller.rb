@@ -20,6 +20,7 @@ class PlayersController < ApplicationController
         end
   
         player = story.players.build(player_params)
+    
         story.save
     
         render json: {}

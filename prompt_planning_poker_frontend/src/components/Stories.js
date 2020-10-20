@@ -12,7 +12,7 @@ class Stories extends Component{
         let selectedStory = {}
         const stories = this.props.stories || []
 
-        if (stories && stories.length === 1){
+        if (stories && stories.length === 1 && this.props.plan.selectedStory){
             selectedStory =  stories.find( story => story.id === this.props.plan.selectedStory)
            
             return (

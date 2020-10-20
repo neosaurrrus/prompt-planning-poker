@@ -35,6 +35,7 @@ class StoryInput extends Component {
  
     return (
         <form className='story-input' style={{ display: this.props.formDisplay }}onSubmit={this.handleSubmit}>
+          
           <div>
             <label htmlFor="name">As a </label>
             <input type="text" onChange={this.handleChange} name="as_a" value={this.state.as_a}/> , 

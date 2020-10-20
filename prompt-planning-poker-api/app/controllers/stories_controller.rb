@@ -33,8 +33,9 @@ class StoriesController < ApplicationController
     def update
         story = Story.find(params[:id])
         story.players.delete_all
-
+        story.set_score
         story.update(story_params)
+        
         render json: story
     end
 
@@ -43,6 +44,10 @@ class StoriesController < ApplicationController
         story.delete
         plan = Plan.find_by(url:params[:plan_id])
         stories = plan.stories
+        if !plan.selectedStory.present?
+            plan.selectedStory =  stories[0].id
+            plan.save
+        end
         render json: stories
     end
 
@@ -63,6 +68,8 @@ class StoriesController < ApplicationController
     def story_params
         params.require(:story).permit(:as_a, :want_to, :i_can, :url, :plan, :plan_id, :id, :score, :created_at, :updated_at, :complete)
     end
+
+    
 
 end
 

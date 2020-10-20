@@ -14,15 +14,15 @@ class PlayersController < ApplicationController
     def create 
         
         story = Story.find(params[:story_id])
-
         if story.players.find_by(name: params[:player][:name])
             story.players.find_by(name: params[:player][:name]).delete
         end
   
         player = story.players.build(player_params)
-    
+
+        story.set_score
+        binding.pry
         story.save
-    
         render json: {}
     end
 
@@ -48,9 +48,7 @@ class PlayersController < ApplicationController
   end
 
   def set_story
-
     plan = Plan.find_by!(url:params[:plan_id])
-    
     story = plan.stories.find(params[:id])
   end
 

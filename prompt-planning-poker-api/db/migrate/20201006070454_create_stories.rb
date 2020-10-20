@@ -6,7 +6,7 @@ class CreateStories < ActiveRecord::Migration[6.0]
       t.string :i_can
       t.integer :score
       t.boolean :complete, :default => false
-      t.references :plan, null: false, foreign_key: true
+      t.references :plan, foreign_key: true
       t.timestamps
     end
   end

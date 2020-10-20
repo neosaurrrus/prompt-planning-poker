@@ -14,20 +14,18 @@ class Story extends Component{
         this.props.editPlan(this.props.plan, {selectedStory: this.props.story.id}) 
     }
 
-    checkSelected = () =>{
-        if (this.props.plan.selectedStory === this.props.story.id ) {
-            return <h4>Selected</h4>
-        }
-    }
+   
     renderStory = () => { 
     if (this.props.story) return (
     <div>
-        <p>As a <strong>{this.props.story.as_a}</strong>,</p>
-        <p>I want to <strong>{this.props.story.want_to}</strong></p>
-        <p>So I can <strong>{this.props.story.i_can}</strong></p>
+       
+        <p>As a <strong>{this.props.story.as_a}</strong>,
+        I want to <strong>{this.props.story.want_to}</strong>
+        , so I can <strong>{this.props.story.i_can}</strong></p>
+        <h5>Score: {this.props.story.points}</h5> WORK OUT POINTS! sort by AS_A in rai;ls
         <button onClick={this.handleSelect}>Select Story</button>
         <button onClick={this.handleDelete}>Delete Story</button>
-        <hr></hr>
+        
      </div>
     )
     }
@@ -35,7 +33,6 @@ class Story extends Component{
     render(){
         return (
             <div className='story'>
-                {this.checkSelected()}
                 {this.renderStory()}
             </div>
            

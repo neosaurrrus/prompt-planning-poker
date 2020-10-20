@@ -16,7 +16,7 @@
 
   --darkShade: rgba(0, 129, 167, 0.5);
   --lightShade: rgba(0, 129, 167, 0.3);
-  --lighestShade: rgba(0, 129, 167, 0.1);
+  --lightestShade: rgba(0, 129, 167, 0.1);
  
   
   
@@ -45,7 +45,7 @@ button, input {
   text-align: right;
 }
 
-h1, h2, h3 {
+h1, h2, h3,h4, h5 {
   font-family: 'Julius Sans One', sans-serif;
 }
 a{
@@ -107,6 +107,7 @@ a{
   overflow-y: scroll;
   font-weight: normal;
   margin-right: 5px;
+  line-height: 1;
   
 }
 .story-input{
@@ -116,14 +117,16 @@ a{
   background:var(--lightShade);
   align-items: center;
   margin: 0 auto;
-  line-height: 0.5;
+  
   padding: 10px;
 }
 
 .story{
-  background: var(--lighestShade);
+  background: var(--lightestShade);
   width:90%;
-  margin: 0 auto;
+  margin: 5px auto;
+  padding: 5px;
+  border: 1px solid var(--lightShade)
 }
 
 .Game { grid-area: Game; background: var(--game); color: var(--darkText) ;font-weight: normal; display: flex;
@@ -132,6 +135,7 @@ a{
   justify-content: space-around;
   align-items: center;
   margin-left: 5px;
+  
 }
 
 .Footer { grid-area: Footer; background: var(--toptail); font-size: calc(2px + 2vmin); }

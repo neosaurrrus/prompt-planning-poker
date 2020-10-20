@@ -5,15 +5,18 @@ class StoryInput extends Component {
     as_a:"", 
     want_to:"",
     i_can:"",
-    complete: false
+    
   
-
     }
 
   handleChange = (e) => {
+    let value = e.target.value
+    if (e.target.value.length === 1 && e.target.name === 'as_a'){
+      value = value.toUpperCase()
+    }
+
     this.setState({
-    
-        [e.target.name]: e.target.value
+        [e.target.name]: value
     //  Need to make sure first char is capitalised for owner and plan too
       
     })
@@ -21,11 +24,11 @@ class StoryInput extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()              
-    console.log(this.state)
     this.props.addStory(this.state,this.props.plan)
     this.setState({
-      complete: true,
-      completedUrl: `/`
+      as_a:"", 
+      want_to:"",
+      i_can:""
     })
   }
   render() {
@@ -45,7 +48,7 @@ class StoryInput extends Component {
             <input type="text" onChange={this.handleChange} name="i_can" value={this.state.i_can}/>.
           </div>
          
-          <input type="submit" value='Add Story'></input>
+          <input type="submit" value="Add Story"></input>
         </form>
 
     );

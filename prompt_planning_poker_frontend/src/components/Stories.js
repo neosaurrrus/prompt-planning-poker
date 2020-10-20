@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import Story from './Story'
-
+import {withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 
 class Stories extends Component{
-  
+  debugger
     render(){
-   
+        
         let otherStories = {}
         let selectedStory = {}
-        const stories = this.props.plan.stories
+        const stories = this.props.stories || []
 
         if (stories && stories.length === 1){
             selectedStory =  stories.find( story => story.id === this.props.plan.selectedStory)
-            debugger
+           
             return (
                 <div>
                     <h4>Selected Story</h4>
@@ -24,7 +25,7 @@ class Stories extends Component{
 
             selectedStory =  stories.find( story => story.id === this.props.plan.selectedStory)
             otherStories  =  stories.filter( story => story.id !== this.props.plan.selectedStory).sort( (a,b) => (a.as_a > b.as_a) ? 1 : -1 )
-            debugger
+            
             return (
                 <div>
                     <h4>Selected Story</h4>
@@ -34,14 +35,20 @@ class Stories extends Component{
                 </div>
             )
         }
-        
-      
-        
         return <h3>No Stories Found.</h3>
     }
 
 }
 
-export default Stories
+const mapStateToProps = state => {return {
+    plan: state.plan,
+    stories: state.stories
+  }}
+
+
+
+export default connect(mapStateToProps)(Stories)
+
+
 
 

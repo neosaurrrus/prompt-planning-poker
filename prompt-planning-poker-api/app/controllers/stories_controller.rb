@@ -18,7 +18,15 @@ class StoriesController < ApplicationController
     def create 
         plan = Plan.find_by(url:params[:url])
         story = plan.stories.build(story_params)
+        
+       
         plan.save
+        if !plan.selectedStory.present?
+           
+            plan.selectedStory =  story.id
+            plan.save
+        end
+       
         render json: story
     end
 

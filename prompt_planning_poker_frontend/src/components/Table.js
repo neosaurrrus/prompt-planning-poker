@@ -29,7 +29,7 @@ class Table extends Component{
     render(){
         return (
             <div className='Table'>
-                <h2>Current Table</h2>
+                <h2>Team Scores</h2>
                 <p> Score</p>
                 <p> divs for each player </p>
                 {this.renderPlayers()}

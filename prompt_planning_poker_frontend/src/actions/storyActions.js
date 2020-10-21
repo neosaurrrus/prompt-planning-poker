@@ -97,7 +97,7 @@ export const deletePlayers = (plan, story) => {
         fetch(`http://localhost:3000/plans/${plan.url}`)
         .then(resp => resp.json())
         .then(res => {
-            debugger
+            
             dispatch({type: 'GET_STORIES', stories: res.stories})
               })
         .catch(err => console.log(err))

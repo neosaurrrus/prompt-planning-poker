@@ -1,7 +1,6 @@
 
 
 export const getPlayers = (plan, story) => {
-    
     return (dispatch) => {
         dispatch({ type: 'LOADING_PLAYERS'})
 
@@ -13,7 +12,9 @@ export const getPlayers = (plan, story) => {
     .catch(err => console.log(err))
     }
 }
+
 export const addPlayer = (plan, story, player) => {
+    debugger
     const data = {plan_id: plan.id, story_id: story.id, player}
     return (dispatch) => {
         dispatch({ type: 'LOADING_PLAYERS'})
@@ -30,9 +31,7 @@ export const addPlayer = (plan, story, player) => {
         fetch(`http://localhost:3000/plans/${plan.url}/stories/${story.id}/players`)
         .then(resp => resp.json())
         .then(res => {
-            
-
-            dispatch({type: 'GET_PLANS', plans: res})
+            dispatch({type: 'GET_STORY', stories: res})
               })
         .catch(err => console.log(err))
           })

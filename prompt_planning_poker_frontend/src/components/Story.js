@@ -60,5 +60,5 @@ class Story extends Component{
     }
      
 }
-PASS UP TOTAL SCORE
+
 export default Story

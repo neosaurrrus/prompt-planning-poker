@@ -38,18 +38,25 @@ class PlanHeader extends Component{
       })
     }
 
-
-    renderName = () => {
+    getScore = () => {
      
-    
+      if (this.props.stories && this.props.stories.length > 0 ) {
+        let scores = this.props.stories.map( story => story.score)
+        let totalScore = scores.reduce((acc, score) => acc+score)
+        return totalScore === null ? 'Now score some stories!' : `Total Score: ${totalScore}`
+      
+      } 
+      
+      return `Add some stories and get playing`
     }
-    
+
+  
     render(){
       if (!this.state.editMode){
         return (
         <div className='Plan'>
           <h1>{this.props.plan.name}</h1>
-          <p>Total Score: INSERT HERE</p>
+          <p>{this.getScore()}</p>
           <span><button onClick={this.handleEdit}>Edit</button><button onClick={this.handleDelete}>Delete</button></span>
         </div>
         )
@@ -68,7 +75,9 @@ class PlanHeader extends Component{
     
 }
 const mapStateToProps = state => {return {
-  plan: state.plan
+  plan: state.plan,
+  stories: state.stories
+  
 }}
 
 PlanHeader.defaultProps = {

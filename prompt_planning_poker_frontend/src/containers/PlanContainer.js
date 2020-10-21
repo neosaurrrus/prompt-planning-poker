@@ -22,13 +22,13 @@ class PlanContainer extends Component {
          <div className='grid-container'>           
            <PlanHeader  deletePlan={this.props.deletePlan} getPlan={this.props.getPlan}editPlan={this.props.editPlan} plan={this.props.plan}/>
            <StoriesContainer stories={this.props.plan.stories} plan={this.props.plan} editPlan={this.props.editPlan} />
-           <PokerContainer plan={this.props.plan}></PokerContainer>
+           <PokerContainer></PokerContainer>
            <Footer plan={this.props.plan}></Footer>
        </div>
     );
   }
 };
-
+ 
 PlanContainer.defaultProps = {
   plan:{
     name:"Error",

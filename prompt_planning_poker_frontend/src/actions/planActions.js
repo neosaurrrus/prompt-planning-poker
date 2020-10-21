@@ -1,7 +1,11 @@
 
+export const setUserName = user => {
+    return (dispatch) => {
+        dispatch({ type:'SET_USERNAME', user: user})
+    }
+}
 
 export const getPlans = () => {
-    
     return (dispatch) => {
         dispatch({ type: 'LOADING_PLANS'})
     fetch('http://localhost:3000/plans')

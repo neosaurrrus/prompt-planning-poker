@@ -22,6 +22,7 @@ class PlayersController < ApplicationController
 
         story.set_score
         story.save
+        plan = story.plan
         render json: story
     end
 

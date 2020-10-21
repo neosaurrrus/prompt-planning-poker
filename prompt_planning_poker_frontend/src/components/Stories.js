@@ -11,7 +11,7 @@ class Stories extends Component{
         let otherStories = {}
         let selectedStory = {}
         const stories = this.props.stories || []
-
+        debugger
         if (stories && stories.length === 1 && this.props.plan.selectedStory){
             selectedStory =  stories.find( story => story.id === this.props.plan.selectedStory)
            

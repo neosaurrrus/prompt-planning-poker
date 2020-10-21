@@ -14,7 +14,7 @@ export const getPlayers = (plan, story) => {
 }
 
 export const addPlayer = (plan, story, player) => {
-    debugger
+   
     const data = {plan_id: plan.id, story_id: story.id, player}
     return (dispatch) => {
         dispatch({ type: 'LOADING_PLAYERS'})
@@ -28,10 +28,11 @@ export const addPlayer = (plan, story, player) => {
     })
     .then(resp => resp.json())
     .then(res => {
-        fetch(`http://localhost:3000/plans/${plan.url}/stories/${story.id}/players`)
+        fetch(`http://localhost:3000/plans/${plan.url}`)
         .then(resp => resp.json())
         .then(res => {
-            dispatch({type: 'GET_STORY', stories: res})
+          
+            dispatch({type: 'GET_STORIES', stories: res.stories})
               })
         .catch(err => console.log(err))
           })

@@ -9,6 +9,13 @@ export default function managePlans(state = {plans:[], loading: false }, action)
                 ...state,
                 loading:true
             }
+        case 'SET_USERNAME':
+         
+            return {
+                
+                ...state,
+                user: action.user
+            }
         case 'LOADING_PLAN':
             return {
                 ...state,
@@ -32,6 +39,12 @@ export default function managePlans(state = {plans:[], loading: false }, action)
             console.log("GET_STORIES")
             return {...state, 
                     stories: action.stories,
+                    loading: false
+                } 
+        case 'GET_STORY':
+            console.log("GET_STORY")
+            return {...state, 
+                    story: action.story,
                     loading: false
                 } 
         case 'GET_PLAN':

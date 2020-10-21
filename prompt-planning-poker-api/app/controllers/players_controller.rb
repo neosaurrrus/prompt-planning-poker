@@ -21,9 +21,8 @@ class PlayersController < ApplicationController
         player = story.players.build(player_params)
 
         story.set_score
-        binding.pry
         story.save
-        render json: {}
+        render json: story
     end
 
     def update

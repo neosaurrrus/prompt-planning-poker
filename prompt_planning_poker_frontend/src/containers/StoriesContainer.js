@@ -29,8 +29,6 @@ class StoriesContainer extends Component {
 
 
   render() {
-    
-    console.log(this.props.plan)
     return (
     <div className='Stories'>
       <h2>{this.props.stories.length} Stories</h2>

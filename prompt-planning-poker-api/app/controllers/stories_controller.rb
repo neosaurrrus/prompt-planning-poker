@@ -33,7 +33,8 @@ class StoriesController < ApplicationController
     def update
         story = Story.find(params[:id])
         story.players.delete_all
-        story.set_score
+        story.score = 0
+        
         story.update(story_params)
         
         render json: story

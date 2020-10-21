@@ -1,7 +1,7 @@
 
 
 export const getStories = (plan = {url: "testurl1"}) => {
-    
+
     return (dispatch) => {
         dispatch({ type: 'LOADING_STORIES'})
 
@@ -94,10 +94,11 @@ export const deletePlayers = (plan, story) => {
     })
     .then(resp => resp.json())
     .then(res => {
-        fetch(`http://localhost:3000/plans/${plan.url}/stories/${story.id}`)
+        fetch(`http://localhost:3000/plans/${plan.url}`)
         .then(resp => resp.json())
         .then(res => {
-            dispatch({type: 'GET_PLAN', story: res})
+            debugger
+            dispatch({type: 'GET_STORIES', stories: res.stories})
               })
         .catch(err => console.log(err))
           })

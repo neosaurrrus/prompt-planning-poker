@@ -13,6 +13,19 @@ export const getStories = (plan = {url: "testurl1"}) => {
     .catch(err => console.log(err))
     }
 }
+export const getStory = (plan) => {
+   console.log(plan)
+    return (dispatch) => {
+        dispatch({ type: 'LOADING_STORIES'})
+    fetch(`http://localhost:3000/plans/${plan.url}/stories/${plan.selectedStory}`)
+    .then(resp => resp.json())
+    .then(res => {
+        console.log(res)
+        dispatch({type: 'GET_STORY', story: res})
+          })
+    .catch(err => console.log(err))
+    }
+}
 export const addStory = (story, plan) => {
 
     const data = {...story, url:plan.url}

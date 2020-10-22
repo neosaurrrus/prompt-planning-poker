@@ -15,13 +15,9 @@ class Table extends Component{
     }
 
     handleReset = (e) => {    //clears all player's previous votes.
-        //set up resetPlayes action
+      
         this.props.deletePlayers(this.props.plan, this.props.story)
-        //call resetPlayers action
-        // set up Action to put on the story
-        //route deletes all players for that story
-        //return story in fetch
-        //message players have been reset
+
 
     }
     renderPlayers = () => {

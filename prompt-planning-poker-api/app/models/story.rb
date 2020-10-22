@@ -3,6 +3,15 @@ class Story < ApplicationRecord
   has_many :players
 
   def set_score
-    self.score = self.players.reduce(0){ |sum, player| sum + player.score}
+  
+    if self.players.empty? 
+      self.score = 0
+      return self.score
+    end
+
+    total_score = self.players.reduce(0){ |sum, player| sum + player.score}
+    self.score = (total_score / self.players.length).round
+    self.score
+
   end
 end

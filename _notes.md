@@ -1,11 +1,6 @@
 # Next up
 
-- Action file 
-- Build Backend
-- Thunk it up
 
+# Bugs
 
-
-## Stuff to to do later
-
-- Stories
+New story in new plan doesnt appear in the sected box... probably logic in stories.

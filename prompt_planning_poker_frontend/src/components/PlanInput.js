@@ -6,7 +6,7 @@ import PlanContainer from '../containers/PlanContainer'
 class PlanInput extends Component {
 
   state = {name:"", 
-           owner:"",
+           pin:"",
            complete: false
           }
 
@@ -19,7 +19,7 @@ class PlanInput extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     const url = cuid()
-    this.props.addPlan({name: this.state.name, owner: this.state.owner, url})
+    this.props.addPlan({name: this.state.name, owner: this.state.pin, url})
     this.setState({
       complete: true,
       completedUrl: `/plans/${url}`
@@ -37,10 +37,10 @@ class PlanInput extends Component {
           <h1>Create a New Plan</h1>
           <label htmlFor="name">Give the Plan a Name</label>
           <input type="text" onChange={this.handleChange} name="name" value={this.state.name}/>
-          <label htmlFor="owner">Enter Your Name</label>
-          <input type="text" onChange={this.handleChange} name="owner" value={this.state.owner}/>
+          <label htmlFor="pin">Admin PIN <br></br>(This allows creation and editing of the plan and stories)</label>
+          <input type="text" onChange={this.handleChange} name="pin" value={this.state.pin}/>
           <br></br>
-          <input type="submit"></input>
+          <input id='plan-submit'type="submit"></input>
         </form>
 
     );

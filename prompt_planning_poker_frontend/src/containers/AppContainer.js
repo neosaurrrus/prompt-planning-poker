@@ -19,7 +19,7 @@ class AppContainer extends Component {
 
   state = {
     userName:"GUEST",
-    pin: 1234
+    pin: null
   }
 
   componentDidMount(){
@@ -43,12 +43,13 @@ class AppContainer extends Component {
         <Router>
         <nav className='App-header'>
               <Link to="/">Prompt-Planning-Poker</Link>
-              <span><label>Name:</label><input type='text' name='userName' value={this.state.userName} onChange={this.handleChange} placeholder='<Enter Name>'></input></span>
+              <div>
+                <label>Name:</label><input type='text' name='userName' value={this.state.userName} onChange={this.handleChange} placeholder='<Enter Name>'></input>
+                <label>Admin PIN:</label><input type='text' name='pin' value={this.state.pin} onChange={this.handleChange} placeholder='<None>'></input>
+              </div>
               <Link to="/new-plan">New Plan</Link>
         </nav>
-        <section>
-
-        </section>
+       
           <Switch>
             <Route path="/new-plan">
               <PlanInput addPlan={this.props.addPlan} getPlanUrl={this.getPlanUrl} />

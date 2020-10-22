@@ -170,14 +170,15 @@ a{
   width: 100%;
   background: var(--lightShade);
   height: 30%;
-
   margin-top: 2%;
-
-
 }
 
+nav{
+  padding: 0 2%;
+}
 nav *{
   margin: 0 5px;
+
   text-decoration: none;
   background: none;
 }
@@ -194,10 +195,6 @@ nav input{
 ::placeholder{
   color: var(--whiteText);
 }
-
-
-
-
 
 .form-input {
   margin: 50px auto;

@@ -15,6 +15,7 @@
   --darkText: #3a3636;
 
   --darkShade: rgba(0, 129, 167, 0.5);
+  --blackShade: rgba(0, 0, 0, 0.2);
   --lightShade: rgba(0, 129, 167, 0.3);
   --lightestShade: rgba(0, 129, 167, 0.1);
  
@@ -184,12 +185,16 @@ nav *{
   margin: 0 5px;
   text-decoration: none;
   background: none;
+  text-align: left;
+  display:flex;
+  align-items: center;
+  justify-content: center;
 }
 
 nav input{
   font-family: 'Julius Sans One', sans-serif;
   color: var(--whiteText);
-
+  background: var(--blackShade);
   font-size: 0.9em;
   border: none;
   padding: 3px;
@@ -197,15 +202,29 @@ nav input{
 }
 
 nav div {
-  background: rgba(0,0,0,0.2);
+
   font-size:0.9em;
-  width:50%
+  width:30%
 }
 
+#new-plan{
+  border: 3px solid var(--whiteText);
+  height:20px;
+  padding: 5px;
+  transition: 0.3s all
+}
+
+#new-plan:hover{
+  background: var(--stories);
+  color: var(--darkText);
+}
 ::placeholder{
   color: var(--whiteText);
 }
 
+#pin{
+  width: 50px;
+}
 .form-input {
   margin: 50px auto;
   padding: 20px;

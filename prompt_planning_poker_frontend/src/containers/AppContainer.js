@@ -44,10 +44,10 @@ class AppContainer extends Component {
         <nav className='App-header'>
               <Link to="/">Prompt-Planning-Poker</Link>
               <div>
-                <label>Name:</label><input type='text' name='userName' value={this.state.userName} onChange={this.handleChange} placeholder='<Enter Name>'></input>
-                <label>Admin PIN:</label><input type='text' name='pin' value={this.state.pin} onChange={this.handleChange} placeholder='<None>'></input>
+                <label>Name:</label><input type='text' name='userName' value={this.state.userName} maxLength='10' onChange={this.handleChange} placeholder='ANON'></input>
+                <label>PIN:</label><input type='password' id='pin' name='pin' value={this.state.pin} maxLength='4' onChange={this.handleChange} placeholder=''></input>
               </div>
-              <Link to="/new-plan">New Plan</Link>
+              <Link id='new-plan'to="/new-plan">New Plan</Link>
         </nav>
        
           <Switch>

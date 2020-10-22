@@ -16,9 +16,9 @@ class PlanContainer extends Component {
     return this.props.plans.find( plan => plan.url === this.props.match.params.url)
   }
  
- componentDidMount() {
-    this.updatePlan();
-  }
+//  componentDidMount() {
+//     this.updatePlan();
+//   }
   
   updatePlan = async () => {
     await this.props.getPlan(this.props.match.params.url)

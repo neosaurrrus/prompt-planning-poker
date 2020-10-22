@@ -9,16 +9,25 @@ import { getPlan, getPlans, addPlan, deletePlan,editPlan} from '../actions/planA
 
 
 class PlanContainer extends Component {
-  updateInterval
+  updateTimeout;
+
   getPlans = ()=>{
     this.props.getPlans()
     return this.props.plans.find( plan => plan.url === this.props.match.params.url)
   }
-  componentDidMount(){
-    this.props.getPlan(this.props.match.params.url)
-    this.updateInterval = setInterval(() => { this.props.getPlan(this.props.match.params.url)
-    }, 1000);
+ 
+ componentDidMount() {
+    this.updatePlan();
   }
+  
+  updatePlan = async () => {
+    await this.props.getPlan(this.props.match.params.url)
+    this.updateTimeout = setTimeout(this.updatePlan, 1000)
+  }
+  componentWillUnmount(){
+    clearTimeout(this.updateTimeout)
+  }
+
   render() {
     return (
          <div className='grid-container'>           

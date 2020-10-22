@@ -14,7 +14,7 @@ class StoriesContainer extends Component {
   }
 
   handleAddStory = () =>{
-    if (this.state.formDisplay == 'none') {
+    if (this.state.formDisplay === 'none') {
       this.setState({
         formDisplay: 'flex',
         buttonText: 'Done Adding Stories'

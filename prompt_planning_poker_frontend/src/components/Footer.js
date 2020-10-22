@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
 function Footer(){
  
     return (
         <footer className='Footer'>
-            <p> 🤟🏾 Lukie Kang 🤟🏾</p>
+            <p> <span role='img' aria-label='wave'>🤟🏾</span>Lukie Kang <span role='img' aria-label='wave'>🤟🏾</span></p>
 
         </footer>
         

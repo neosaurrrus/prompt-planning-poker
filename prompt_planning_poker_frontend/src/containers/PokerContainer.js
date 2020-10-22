@@ -41,7 +41,7 @@ class PokerContainer extends Component {
     return (
       <div className='Game'>
         <Table id="Table" plan={this.props.plan} deletePlayers={this.props.deletePlayers} story={this.getStory()}/>
-        <Hand id="Hand" plan={this.props.plan} story={this.props.story} addPlayer={this.props.addPlayer} user={this.props.user} story={this.getStory()} /> 
+        <Hand id="Hand" plan={this.props.plan} addPlayer={this.props.addPlayer} user={this.props.user} story={this.getStory()} /> 
       </div>
     );
   }

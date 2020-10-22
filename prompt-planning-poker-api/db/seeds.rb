@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Plan.create(name: "Test Plan 1", owner: "Test User 1", url: "testurl1", selectedStory: 1)
-Plan.create(name: "Test Plan 2", owner: "Test User 2", url: "testurl2")
+Plan.create(name: "Test Plan 1", pin: 9999, url: "testurl1", selectedStory: 1)
+Plan.create(name: "Test Plan 2", pin: 9999, url: "testurl2", selectedStory: 2)
 
 Story.create(plan_id:1, as_a:"User",want_to:"log in to the system", i_can:"Add, remove and delete my stuff")
 
@@ -18,6 +18,9 @@ Plan.first.stories.build(as_a:"Admin",want_to:"add accounts", i_can:"let users d
 Plan.first.stories.first.players.build(name: 'Tom',score: 5).save
 Plan.first.stories.first.players.build(name: 'Dick',score: 13).save
 Plan.first.stories.first.players.build(name: 'Harriet',score: 3).save
+Plan.last.stories.first.players.build(name: 'Tim',score: 5).save
+Plan.last.stories.first.players.build(name: 'Duck',score: 13).save
+Plan.last.stories.first.players.build(name: 'Hannah',score: 3).save
 
 
 

@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2020_10_15_112510) do
 
   create_table "plans", force: :cascade do |t|
     t.string "name"
-    t.string "owner"
+    t.integer "pin"
     t.string "url"
     t.boolean "complete", default: false
     t.integer "selectedStory"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_10_15_112510) do
     t.string "i_can"
     t.integer "score"
     t.boolean "complete", default: false
-    t.integer "plan_id", null: false
+    t.integer "plan_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["plan_id"], name: "index_stories_on_plan_id"

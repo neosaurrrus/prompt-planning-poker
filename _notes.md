@@ -1,5 +1,5 @@
 # Next up
-Sexy Scards!
+There should be 5 stateless components
 
 # Bugs
 

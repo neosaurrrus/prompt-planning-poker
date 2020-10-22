@@ -9,13 +9,15 @@ import { getPlan, getPlans, addPlan, deletePlan,editPlan} from '../actions/planA
 
 
 class PlanContainer extends Component {
-   
+  updateInterval
   getPlans = ()=>{
     this.props.getPlans()
     return this.props.plans.find( plan => plan.url === this.props.match.params.url)
   }
   componentDidMount(){
     this.props.getPlan(this.props.match.params.url)
+    this.updateInterval = setInterval(() => { this.props.getPlan(this.props.match.params.url)
+    }, 1000);
   }
   render() {
     return (

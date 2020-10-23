@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Story from './Story'
-import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 

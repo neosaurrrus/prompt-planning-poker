@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 
 class Story extends Component{
      
-    
-
     handleDelete = (e) => {
        
         this.props.deleteStory(this.props.story.id, this.props.plan) 

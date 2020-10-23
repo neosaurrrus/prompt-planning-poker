@@ -25,28 +25,44 @@ class Story extends Component{
         )
     }
     renderScore = () => { 
-        if (this.props.story && this.props.story.score > 0) {
+        if (this.props.story && this.props.story.score > 0 && this.props.story.players.length > 1) {
             return (
             <div>
                 <h5>Score: {this.props.story.score}</h5>
             </div>
              )
+        } else if (this.props.story.players === 1){
+            return (
+                <div>
+                <h5>One more player needed for Score</h5>
+              </div>
+            )
+            
         } else { 
             return (
                 <div>
-                    <h5>Not Played</h5>
+                    <h5>Not Scored Yet</h5>
                 </div>
             )
         }
     }
     renderButtons = () => { 
-        if (this.props.story) return (
+        if (this.props.story && this.checkPin()) return (
             <div>
                 <button onClick={this.handleSelect}>Select Story</button>
                 <button onClick={this.handleDelete}>Delete Story</button>
             </div>
         )
     }
+
+    checkPin = () => {
+        if (!this.props.user || this.props.user.pin !== this.props.plan.pin) {
+          return false
+        } else if (this.props.user.pin === this.props.plan.pin) {
+          return true
+        }
+      }
+  
     
     render(){
         return (

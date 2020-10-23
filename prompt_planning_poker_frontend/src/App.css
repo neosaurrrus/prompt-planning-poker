@@ -209,7 +209,7 @@ nav div {
 }
 
 #new-plan{
-  border: 3px solid var(--whiteText);
+  border: 2px solid var(--whiteText);
   height:20px;
   padding: 5px;
   transition: 0.3s all

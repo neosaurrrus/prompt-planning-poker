@@ -3,7 +3,7 @@ import Table from '../components/Table'
 import Hand from '../components/Hand'
 import {connect} from 'react-redux'
 import {addPlayer} from '../actions/playerActions'
-import {deletePlayers, getStory} from '../actions/storyActions'
+import {deletePlayers, getStory, toggleStoryReveal} from '../actions/storyActions'
 
 class PokerContainer extends Component {
 
@@ -11,20 +11,7 @@ class PokerContainer extends Component {
   state = {
     plan: {}
   }
-  // componentWillUpdate(){
 
-  //   if (this.props.plan){
-  //     this.props.getStory(this.props.plan)
-  //   }
-    
-  // }
-
-  // componentWillReceiveProps(nextProps) {
-  //   // You don't have to do this check first, but it can help prevent an unneeded render
-  //   if (nextProps.plan !== this.state.plan) {
-  //     this.setState({ plan: nextProps.plan });
-  //   }
-  // }
 
  getStory= () =>{
     if (this.props.stories) {
@@ -33,14 +20,11 @@ class PokerContainer extends Component {
   }
   
 
-  
-
-
   render() {
     
     return (
       <div className='Game'>
-        <Table id="Table" user={this.props.user} plan={this.props.plan} deletePlayers={this.props.deletePlayers} story={this.getStory()}/>
+        <Table id="Table" user={this.props.user} toggleStoryReveal={this.props.toggleStoryReveal} plan={this.props.plan} deletePlayers={this.props.deletePlayers} story={this.getStory()}/>
         <Hand id="Hand" plan={this.props.plan} addPlayer={this.props.addPlayer} user={this.props.user} story={this.getStory()} /> 
       </div>
     );
@@ -69,6 +53,7 @@ const mapDispatchToProps = dispatch => {
   return {
     addPlayer: (plan,story,player) => dispatch(addPlayer(plan, story, player)),
     deletePlayers: (plan,story) => dispatch(deletePlayers(plan, story)),
+    toggleStoryReveal: (plan,story) => dispatch(toggleStoryReveal(plan, story)),
     getStory:(plan) =>  dispatch(getStory(plan))
   }
 }

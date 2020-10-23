@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 class Player extends Component{
      
     renderReveal = () => {
-        return this.props.reveal ? this.props.player.score : '???'
+        return this.props.revealed ? this.props.player.score : '???'
     }
 
     render(){

@@ -105,3 +105,30 @@ export const deletePlayers = (plan, story) => {
     .catch((err) => console.log(err))
     }
 }
+
+export const toggleStoryReveal = (plan, story) => { 
+    return (dispatch) => {
+        dispatch({ type: 'LOADING_PLANS'})
+    const newStory = {...story}
+    newStory.revealed = !newStory.revealed
+    fetch(`http://localhost:3000/plans/${plan.url}/stories/${story.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        },
+        body: JSON.stringify(newStory)
+    })
+    .then(resp => resp.json())
+    .then(res => {
+        fetch(`http://localhost:3000/plans/${plan.url}`)
+        .then(resp => resp.json())
+        .then(res => {
+            
+            dispatch({type: 'GET_STORIES', stories: res.stories})
+              })
+        .catch(err => console.log(err))
+          })
+    .catch((err) => console.log(err))
+    }
+}

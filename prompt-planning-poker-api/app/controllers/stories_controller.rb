@@ -2,7 +2,6 @@ class StoriesController < ApplicationController
     before_action :get_plan, only: [:index]
     # before_action :set_story, only: [:show, :edit, :update, :destroy]
 
-
     def index
         plan = Plan.find_by(url:params[:plan_id])
         stories = plan.stories
@@ -30,7 +29,7 @@ class StoriesController < ApplicationController
 
     def update
         story = Story.find(params[:id])
-        story.players.delete_all
+        # story.players.delete_all
         story.update(story_params)
         story.set_score
         story.save
@@ -57,7 +56,7 @@ class StoriesController < ApplicationController
 
 
     def story_params
-        params.require(:story).permit(:as_a, :want_to, :i_can, :url, :plan, :plan_id, :id, :score, :created_at, :updated_at, :complete)
+        params.require(:story).permit(:as_a, :want_to, :i_can, :url, :plan, :plan_id, :id, :score, :revealed, :created_at, :updated_at, :complete)
     end
 
     

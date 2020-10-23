@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_10_15_112510) do
     t.string "want_to"
     t.string "i_can"
     t.integer "score"
-    t.boolean "complete", default: false
+    t.boolean "revealed", default: false
     t.integer "plan_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

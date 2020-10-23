@@ -82,8 +82,9 @@ export const deleteStory = (id, plan) => {
 export const deletePlayers = (plan, story) => { 
     return (dispatch) => {
         dispatch({ type: 'LOADING_PLANS'})
-    const newStory = {...story}
+    const newStory = {...story, reset: true}
     delete newStory.players
+    debugger
     fetch(`http://localhost:3000/plans/${plan.url}/stories/${story.id}`, {
         method: "PUT",
         headers: {

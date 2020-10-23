@@ -10,7 +10,7 @@
   --game: #FDFCDC;
   --game: #FDFCDC;
   --stories: #FED9B7;
-  background: linear-gradient(to top, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  ; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   
   --whiteText: #e8fafa;
   --darkText: #3a3636;
@@ -28,8 +28,8 @@
   box-sizing: border-box;
   color: var(--whiteText);
   font-family: 'Archivo Narrow', sans-serif;
-  line-height: 0.5
-  
+  line-height: 0.5;
+  background: linear-gradient(to top, #FFFFFF, #FFEFBA)
 }
 
 button, input {
@@ -146,6 +146,9 @@ button:hover {
   margin-left: 5px;
   
 }
+.Game h3{
+  line-height: 1
+}
 
 .Footer { grid-area: Footer; background: var(--toptail); font-size: calc(2px + 2vmin); }
 
@@ -237,15 +240,15 @@ nav div {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  font-size: calc(8px + 2vmin);
+  font-size: calc(6px + 2vmin);
   color: var(--whiteText);
   text-align: center;
   background: var(--toptail)
 }
 
 .form-input * {
-  padding: 20px;
-  line-height: 2.0;
+  padding: 10px;
+  line-height: 1;
   
 }
 
@@ -256,7 +259,11 @@ nav div {
   color: var(--whiteText);
   width: 60%;
   text-align: center;
+  margin-bottom: 20px;
+}
 
+.form-input .small {
+  font-size: calc(2px + 2vmin);
 }
 
 #plan-submit{

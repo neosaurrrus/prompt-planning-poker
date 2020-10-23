@@ -26,6 +26,9 @@ class AppContainer extends Component {
     this.props.getPlans()
     this.props.setUserName(this.state)
   }
+  componentWillReceiveProps(){
+    this.setState(this.props.user)
+  }
 
   handleNameChange = (e) => {
     this.setState({
@@ -43,20 +46,22 @@ class AppContainer extends Component {
   }
 
   render() {
-    return (
+    if (this.props.user){
+      
+      return (
         <Router>
         <nav className='App-header'>
               <Link to="/">Prompt-Planning-Poker</Link>
               <div>
-                <label>Name:</label><input type='text' name='userName' value={this.state.userName} maxLength='10' onChange={this.handleNameChange} placeholder='ANON'></input>
-                <label>PIN:</label><input type='password' id='pin' name='pin' value={this.state.pin} maxLength='4' onChange={this.handlePinChange} placeholder=''></input>
+                <label>Name:</label><input type='text' name='userName' value={this.props.user.userName} maxLength='10' onChange={this.handleNameChange} placeholder='ANON'></input>
+                <label>PIN:</label><input type='password' id='pin' name='pin' value={this.props.user.pin} maxLength='4' onChange={this.handlePinChange} placeholder=''></input>
               </div>
-              <Link id='new-plan'to="/new-plan">New Plan</Link>
+              <Link id='new-plan'to="/new-plan">New Session</Link>
         </nav>
        
           <Switch>
             <Route path="/new-plan">
-              <PlanInput addPlan={this.props.addPlan} getPlanUrl={this.getPlanUrl} />
+              <PlanInput setUserName={this.props.setUserName} addPlan={this.props.addPlan} getPlanUrl={this.getPlanUrl} />
             </Route>
             <Route path="/plans/:url">
             <PlanContainer deletePlan={this.props.deletePlan} plans={this.props.plans} />
@@ -70,13 +75,16 @@ class AppContainer extends Component {
 
 
     )
+    }
+   return null
   }
 }
 
 
 const mapStateToProps = state => { 
   return {plans: state.plans,
-          setUserName: state.setUserName
+          setUserName: state.setUserName,
+          user: state.user
           }
 }
 

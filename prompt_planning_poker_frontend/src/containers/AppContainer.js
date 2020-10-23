@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 
 import PlanInput from '../components/PlanInput';
 import Intro from '../components/Intro'
+import Footer from '../components/Footer'
 import PlanContainer from './PlanContainer';
 
 import { getPlans, addPlan, deletePlan, setUserName } from '../actions/planActions'
@@ -70,10 +71,10 @@ class AppContainer extends Component {
             <Intro></Intro>
             </Route>
           </Switch>
-      
+
         </Router>
 
-
+        
     )
     }
    return null

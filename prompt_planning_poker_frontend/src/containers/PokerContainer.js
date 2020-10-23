@@ -24,7 +24,7 @@ class PokerContainer extends Component {
     if (this.props.plan.stories.length === 0) {
       return (
         <div className='Game'>
-          <h1>Add Some Stories to get Estimating</h1>
+          <h3>Add Some Stories to get Estimating</h3>
          </div>
       )
     }
@@ -52,7 +52,8 @@ const mapStateToProps = state => {return {
   plan: state.plan,
   stories: state.stories,
   user: state.user,
-  story: state.story
+  story: state.story,
+  loading: state.loading
 }}
 
 const mapDispatchToProps = dispatch => {

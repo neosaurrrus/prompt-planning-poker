@@ -37,11 +37,11 @@ class PlanInput extends Component {
     return (
         <form className='form-input' onSubmit={this.handleSubmit}>
           <h2>New Planning Session</h2>
-          <label htmlFor="name">Give the Session a Name</label>
+          <label htmlFor="name">Session Name<br></br><span className='small'>E.g. The purpose of the user stories</span></label>
           <input type="text" maxLength='15' onChange={this.handleChange} name="name" value={this.state.name}/>
-          <label htmlFor="userName"> Your Name <br></br>(Used for Estimating if you are joining in)</label>
+          <label htmlFor="userName"> Your Name <br></br><span className='small'>Used for estimating if you are joining in</span></label>
           <input type="text" maxLength='15'onChange={this.handleChange} name="userName" value={this.state.userName}/>
-          <label htmlFor="pin">Moderator PIN <br></br>(This allows administration of the planning session)</label>
+          <label htmlFor="pin">Moderator PIN <br></br><span className='small'>This allows administration of the planning session</span></label>
           <input type="text" maxLength='4'onChange={this.handleChange} name="pin" value={this.state.pin}/>
           <br></br>
           <input id='plan-submit'type="submit"></input>
@@ -52,3 +52,5 @@ class PlanInput extends Component {
 };
 
 export default PlanInput;
+
+

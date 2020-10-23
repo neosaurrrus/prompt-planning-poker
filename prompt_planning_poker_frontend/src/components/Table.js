@@ -21,16 +21,29 @@ class Table extends Component{
 
     }
     renderPlayers = () => {
-        
         if (this.props.story.players) return this.props.story.players.map(player => <Player reveal={this.state.reveal} player={player} key={player.id}/>)
     }
+
+    checkPin = () => {
+        if (!this.props.user || this.props.user.pin !== this.props.plan.pin) {
+          return false
+        } else if (this.props.user.pin === this.props.plan.pin) {
+          return (<span>
+            <button onClick={this.handleReset} name='reset'>Reset</button> 
+          </span>
+            
+          )
+        }
+      }
+
     render(){
+        const story = this.props.story
         return (
             <div className='Table'>
-                <h2>Team Scores</h2>
-                <p>{this.props.story.as_a}</p>
+                <h2>Scoring</h2>
+                <h4>As a {story.as_a}, I want to {story.want_to}, so I can {story.i_can}.</h4>
                 <button onClick={this.handleReveal} name='reveal'>Reveal</button>
-                <button onClick={this.handleReset} name='reset'>Reset</button> 
+                {this.checkPin()}
                 {this.renderPlayers()}
                
             </div>

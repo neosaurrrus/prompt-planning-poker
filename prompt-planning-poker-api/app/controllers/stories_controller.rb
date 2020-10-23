@@ -5,9 +5,7 @@ class StoriesController < ApplicationController
 
     def index
         plan = Plan.find_by(url:params[:plan_id])
-        
         stories = plan.stories
-      
         render json: stories
     end
     def show
@@ -33,7 +31,6 @@ class StoriesController < ApplicationController
     def update
         story = Story.find(params[:id])
         story.players.delete_all
-        
         story.update(story_params)
         story.set_score
         story.save

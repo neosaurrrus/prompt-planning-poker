@@ -39,8 +39,7 @@ class PlanHeader extends Component{
     }
 
     getScore = () => {
-     
-      if (this.props.stories && this.props.stories.length > 0 ) {
+      if (this.props.stories && this.props.stories.length > 1) {
         let scores = this.props.stories.map( story => story.score)
         let totalScore = scores.reduce((acc, score) => acc+score)
         return totalScore === null ? 'Now score some stories!' : `Total Score: ${totalScore}`

@@ -27,13 +27,20 @@ class StoriesContainer extends Component {
     }
   }
 
+  checkPin = () => {
+    if (!this.props.user || this.props.user.pin !== this.props.plan.pin) {
+      return false
+    } else if (this.props.user.pin === this.props.plan.pin) {
+      return <button onClick={this.handleAddStory}>{this.state.buttonText}</button>
+    }
+  }
 
   render() {
     return (
     <div className='Stories'>
       <h2>{this.props.stories.length} Stories</h2>
       <p></p>
-        <button onClick={this.handleAddStory}>{this.state.buttonText}</button>
+        {this.checkPin()}
         <StoryInput addStory={this.props.addStory} formDisplay={this.state.formDisplay} buttonText={this.state.buttonText} plan={this.props.plan} />
         <Stories plan={this.props.plan} stories={this.props.stories} editPlan={this.props.editPlan} deleteStory={this.props.deleteStory}/>
 
@@ -50,7 +57,8 @@ class StoriesContainer extends Component {
   
   const mapStateToProps = state => {return {
     plan: state.plan,
-    stories: state.stories
+    stories: state.stories,
+    user: state.user
   }}
 
 

@@ -153,8 +153,9 @@ button:hover {
   background: var(--lightShade);
   min-height: 70%;
   overflow-y: scroll;                          
-
 }
+
+
 
 .player{
   background: var(--lightShade);

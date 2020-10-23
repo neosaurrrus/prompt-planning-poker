@@ -15,10 +15,7 @@ class Table extends Component{
     }
 
     handleReset = (e) => {    //clears all player's previous votes.
-      
         this.props.deletePlayers(this.props.plan, this.props.story)
-
-
     }
     renderPlayers = () => {
         if (this.props.story.players) return this.props.story.players.map(player => <Player reveal={this.state.reveal} player={player} key={player.id}/>)

@@ -21,11 +21,17 @@ class PokerContainer extends Component {
   
 
   render() {
-    
+    if (this.props.plan.stories.length === 0) {
+      return (
+        <div className='Game'>
+          <h1>Add Some Stories to get Estimating</h1>
+         </div>
+      )
+    }
     return (
       <div className='Game'>
         <Table id="Table" user={this.props.user} toggleStoryReveal={this.props.toggleStoryReveal} plan={this.props.plan} deletePlayers={this.props.deletePlayers} story={this.getStory()}/>
-        <Hand id="Hand" plan={this.props.plan} addPlayer={this.props.addPlayer} user={this.props.user} story={this.getStory()} /> 
+        <Hand id="Hand" plan={this.props.plan} addPlayer={this.props.addPlayer} user={this.props.user} story={this.getStory()} />
       </div>
     );
   }

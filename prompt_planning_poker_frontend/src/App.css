@@ -10,7 +10,8 @@
   --game: #FDFCDC;
   --game: #FDFCDC;
   --stories: #FED9B7;
-  background: #FDFCDC;
+  background: linear-gradient(to top, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
   --whiteText: #e8fafa;
   --darkText: #3a3636;
 

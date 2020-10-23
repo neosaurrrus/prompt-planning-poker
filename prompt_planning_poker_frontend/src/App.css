@@ -1,18 +1,9 @@
 :root{
-
-  /* --toptail: #264653;
-  --plan: #2A9D8F;
-  --game: #e9c46a;
-  --stories: #f4a261; */
-
   --toptail: rgb(0, 129, 167);
   --plan: #00afb9;
   --game: #FDFCDC;
   --game: #FDFCDC;
   --stories: #FED9B7;
-  ; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
-  
   --whiteText: #e8fafa;
   --darkText: #3a3636;
   background:  #FFEFBA;
@@ -20,9 +11,6 @@
   --blackShade: rgba(0, 0, 0, 0.2);
   --lightShade: rgba(0, 129, 167, 0.3);
   --lightestShade: rgba(0, 129, 167, 0.1);
- 
-  
-  
 }
 .App {
   min-height: 100%;
@@ -31,7 +19,7 @@
   color: var(--whiteText);
   font-family: 'Archivo Narrow', sans-serif;
   line-height: 0.5;
-  background: linear-gradient(to top, #FFEFBA, #FaFAFA)
+  background: linear-gradient(to top, #FFEFBA, rgb(252, 247, 212))
 }
 
 #intro {
@@ -57,6 +45,10 @@ button, input {
 h1, h2, h3,h4, h5 {
   font-family: 'Julius Sans One', sans-serif;
 }
+
+h4{
+  line-height: 1;
+}
 a{
  
   color: var(--whiteText)
@@ -75,8 +67,8 @@ a{
 }
 .Plan { grid-area: Plan; 
   background: var(--plan);
-   min-height:20vh;
-    display: flex; 
+  min-height:20vh;
+  display: flex; 
  
   flex-direction: column;
   align-items: center;
@@ -95,10 +87,11 @@ button, .Plan input{
   margin-right: 10px;
   transition: 0.3s all;
   border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 button:hover {
-  background: var(--stories);
+  background: var(--plan);
   color: var(--darkText)
 }
 #plan-edit{
@@ -115,14 +108,17 @@ button:hover {
 }
 
 .Stories { 
+  border-radius: 20px;
   grid-area: Stories; 
   background:var(--lightShade); 
   max-height:90vh;
   color: var(--darkText);
   overflow-y: scroll;
   font-weight: normal;
-  margin-right: 5px;
+  margin-right: 7px;
+  margin-left: 7px;
   line-height: 1;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   
 }
 .story-input{
@@ -132,19 +128,29 @@ button:hover {
   background:var(--lightShade);
   align-items: center;
   margin: 0 auto;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   
   padding: 10px;
 }
+.story-input input{
+  background: var(--lightestShade);
+  border: 1px solid var(--whiteText);
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 1em
+}
 
 .story{
+  border-radius: 20px;
   background: var(--lightestShade);
   width:90%;
   margin: 5px auto;
-  padding: 5px;
-  border: 1px solid var(--lightShade)
+  padding: 8px;
+  border: 1px solid var(--lightShade);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
-.Game { grid-area: Game; background: var(--game); color: var(--darkText) ;font-weight: normal; display: flex;
+.Game { grid-area: Game; color: var(--darkText) ;font-weight: normal; display: flex;
+
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
@@ -159,16 +165,20 @@ button:hover {
 .Footer { grid-area: Footer; background: var(--toptail); font-size: calc(2px + 2vmin); }
 
 .Table {
+  border-radius: 20px;
   width: 100%;
   background: var(--lightShade);
   min-height: 70%;
-  overflow-y: scroll;                          
+  overflow-y: scroll;  
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);                        
 }
 
 
 
 .player{
-  background: var(--lightShade);
+  background: var(--lightestShade);
+  border: 1px solid var(--lightShade);
+  border-radius: 20px;
   width: 60%;
   height: 30px;
   padding: 10px;
@@ -176,17 +186,21 @@ button:hover {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 .player span {
   width: 40%;
+  border-radius: 10px;
 }
 
 
 .Hand {
+  border-radius: 20px;
   width: 100%;
   background: var(--lightShade);
   height: 30%;
   margin-top: 2%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 nav{
@@ -204,9 +218,10 @@ nav *{
 
 nav input{
   font-family: 'Julius Sans One', sans-serif;
-  color: var(--whiteText);
-  background: var(--blackShade);
+  color: var(--darkText);
+  background: var(--whiteText);
   font-size: 0.9em;
+  border-radius: 10px;
   border: none;
   padding: 3px;
   width: 25%;
@@ -220,6 +235,7 @@ nav div {
 
 #new-plan{
   border: 2px solid var(--whiteText);
+  border-radius: 10px;
   height:20px;
   padding: 5px;
   transition: 0.3s all
@@ -277,7 +293,7 @@ nav div {
   transition: all 0.3s
 }
 #plan-submit:hover{
- background: var(--stories);
+ background: var(--plan);
  color: var(--darkText)
 }
 
@@ -336,7 +352,7 @@ article {
   display:flex;
   height: 75%;
   max-width: 50px;
-  border: 1px solid black;
+  border: 1px solid var(--darkShade);
   background-color: rgba(211, 211, 211, 0.4);
   flex: 1 0 6%;
   background: var(--lightShade);
@@ -351,7 +367,7 @@ article {
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   transform: scale(1.5);
-  background-color: var(--toptail);
+  background: var(--plan);
   color: var(--whiteText)
 }
 

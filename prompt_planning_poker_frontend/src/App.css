@@ -12,9 +12,10 @@
   --stories: #FED9B7;
   ; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   
+  
   --whiteText: #e8fafa;
   --darkText: #3a3636;
-
+  background:  #FFEFBA;
   --darkShade: rgba(0, 129, 167, 0.5);
   --blackShade: rgba(0, 0, 0, 0.2);
   --lightShade: rgba(0, 129, 167, 0.3);
@@ -24,12 +25,17 @@
   
 }
 .App {
+  min-height: 100%;
   text-align: center;
   box-sizing: border-box;
   color: var(--whiteText);
   font-family: 'Archivo Narrow', sans-serif;
   line-height: 0.5;
-  background: linear-gradient(to top, #FFFFFF, #FFEFBA)
+  background: linear-gradient(to top, #FFEFBA, #FaFAFA)
+}
+
+#intro {
+  line-height: 1.6;
 }
 
 button, input {

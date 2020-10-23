@@ -29,7 +29,10 @@ class StoriesController < ApplicationController
 
     def update
         story = Story.find(params[:id])
-        # story.players.delete_all
+        
+        if params[:reset] 
+            story.players.delete_all
+        end
         story.update(story_params)
         story.set_score
         story.save
@@ -56,7 +59,7 @@ class StoriesController < ApplicationController
 
 
     def story_params
-        params.require(:story).permit(:as_a, :want_to, :i_can, :url, :plan, :plan_id, :id, :score, :revealed, :created_at, :updated_at, :complete)
+        params.require(:story).permit(:as_a, :want_to, :i_can, :reset, :url, :plan, :plan_id, :id, :score, :revealed, :created_at, :updated_at, :complete)
     end
 
     

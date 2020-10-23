@@ -1,9 +1,13 @@
 # Next up
 
 
-Set Username should include PIN too
+CLIPBOARD!
+RESET BUTTON
+SHADOWS!
 
-Check for PIN in relevent areas
+WALKTHROUGH
+
+BLOG!
 
 There should be 5 stateless components
 

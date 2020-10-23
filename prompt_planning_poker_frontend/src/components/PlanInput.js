@@ -7,9 +7,9 @@ import PlanContainer from '../containers/PlanContainer'
 class PlanInput extends Component {
 
   state = {name:"", 
-           pin:"",
-           complete: false
-          }
+          userName:'', 
+          pin:''}
+        
 
   handleChange = (e) => {
     this.setState({
@@ -21,6 +21,7 @@ class PlanInput extends Component {
     e.preventDefault()
     const url = cuid()
     this.props.addPlan({name: this.state.name, pin: this.state.pin, url})
+    this.props.setUserName({userName:this.state.userName, pin: Number(this.state.pin)})
     this.setState({
       complete: true,
       completedUrl: `/plans/${url}`
@@ -35,10 +36,12 @@ class PlanInput extends Component {
     }
     return (
         <form className='form-input' onSubmit={this.handleSubmit}>
-          <h1>Create a New Plan</h1>
-          <label htmlFor="name">Give the Plan a Name</label>
+          <h2>New Planning Session</h2>
+          <label htmlFor="name">Give the Session a Name</label>
           <input type="text" maxLength='15' onChange={this.handleChange} name="name" value={this.state.name}/>
-          <label htmlFor="pin">Admin PIN <br></br>(This allows creation and editing of the plan and stories)</label>
+          <label htmlFor="userName"> Your Name <br></br>(Used for Estimating if you are joining in)</label>
+          <input type="text" maxLength='15'onChange={this.handleChange} name="userName" value={this.state.userName}/>
+          <label htmlFor="pin">Moderator PIN <br></br>(This allows administration of the planning session)</label>
           <input type="text" maxLength='4'onChange={this.handleChange} name="pin" value={this.state.pin}/>
           <br></br>
           <input id='plan-submit'type="submit"></input>

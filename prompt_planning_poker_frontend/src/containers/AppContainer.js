@@ -27,11 +27,15 @@ class AppContainer extends Component {
     this.props.setUserName(this.state)
   }
 
-  handleChange = (e) => {
+  handleNameChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value.toUpperCase(),
     }, this.afterSetState)
-    
+  }
+  handlePinChange = (e) => {
+    this.setState({
+      [e.target.name]: Number(e.target.value)
+    }, this.afterSetState)
   }
 
   afterSetState = () => {
@@ -44,8 +48,8 @@ class AppContainer extends Component {
         <nav className='App-header'>
               <Link to="/">Prompt-Planning-Poker</Link>
               <div>
-                <label>Name:</label><input type='text' name='userName' value={this.state.userName} maxLength='10' onChange={this.handleChange} placeholder='ANON'></input>
-                <label>PIN:</label><input type='password' id='pin' name='pin' value={this.state.pin} maxLength='4' onChange={this.handleChange} placeholder=''></input>
+                <label>Name:</label><input type='text' name='userName' value={this.state.userName} maxLength='10' onChange={this.handleNameChange} placeholder='ANON'></input>
+                <label>PIN:</label><input type='password' id='pin' name='pin' value={this.state.pin} maxLength='4' onChange={this.handlePinChange} placeholder=''></input>
               </div>
               <Link id='new-plan'to="/new-plan">New Plan</Link>
         </nav>
@@ -81,7 +85,7 @@ const mapDispatchToProps = dispatch => {
     getPlans: () => dispatch(getPlans()),
     deletePlan: (id) => dispatch(deletePlan(id)),
     addPlan: (plan) => dispatch(addPlan(plan)),
-    setUserName: (userName) => dispatch(setUserName(userName))
+    setUserName: (user) => dispatch(setUserName(user))
 
   }
 }

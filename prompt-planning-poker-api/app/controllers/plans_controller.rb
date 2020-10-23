@@ -29,7 +29,7 @@ class PlansController < ApplicationController
 
     private
     def plan_params
-        params.require(:plan).permit(:id, :name, :owner, :url, :complete, :selectedStory)
+        params.require(:plan).permit(:id, :name, :pin, :url, :complete, :selectedStory)
     end
 
 end

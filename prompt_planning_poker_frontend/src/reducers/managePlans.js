@@ -10,11 +10,10 @@ export default function managePlans(state = {plans:[], loading: false }, action)
                 loading:true
             }
         case 'SET_USERNAME':
-         
             return {
-                
                 ...state,
                 user: action.user
+                
             }
         case 'LOADING_PLAN':
             return {

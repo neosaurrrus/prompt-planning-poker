@@ -50,9 +50,17 @@ class PlanHeader extends Component{
       return `Add some stories and get playing`
     }
 
+    checkPin = () => {
+      if (!this.props.user || this.props.user.pin !== this.props.plan.pin) {
+        return false
+      } else if (this.props.user.pin === this.props.plan.pin) {
+        return true
+      }
+    }
+
   
     render(){
-      if (!this.state.editMode){
+      if (!this.state.editMode && this.checkPin()){
         return (
         <div className='Plan'>
           <h1>{this.props.plan.name}</h1>
@@ -60,25 +68,37 @@ class PlanHeader extends Component{
           <span><button onClick={this.handleEdit}>Edit</button><button onClick={this.handleDelete}>Delete</button></span>
         </div>
         )
-      } else {
+      } else if (this.checkPin() && this.state.editMode){
         return (
-           <div className='Plan'>
-             <form onSubmit={this.handleSubmit}>
-              <input id='plan-edit'type="text" onChange={this.handleChange} name="name" value={this.state.name}/><br></br>
-              <input id='plan-save' type="submit" value="save"/>
-            </form>
+          <div className='Plan'>
+            <form onSubmit={this.handleSubmit}>
+            <input id='plan-edit'type="text" onChange={this.handleChange} name="name" value={this.state.name}/><br></br>
+            <input id='plan-save' type="submit" value="save"/>
+          </form>
           </div>
          
         )
-      } 
+      } else {
+      return (
+        <div className='Plan'>
+          <h1>{this.props.plan.name}</h1>
+          <p>{this.getScore()}</p>
+          </div>
+      )
+      }
     }
     
 }
-const mapStateToProps = state => {return {
+const mapStateToProps = state => {
+
+
+  return {
   plan: state.plan,
-  stories: state.stories
-  
-}}
+  stories: state.stories,
+  user: state.user
+  }
+ 
+}
 
 PlanHeader.defaultProps = {
     plan:{

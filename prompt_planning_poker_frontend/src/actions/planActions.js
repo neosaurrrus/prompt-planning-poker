@@ -17,7 +17,6 @@ export const getPlans = () => {
     }
 }
 export const getPlan = (url) => {
-
     return (dispatch) => {
         dispatch({ type: 'LOADING_PLANS'})
     fetch(`http://localhost:3000/plans/${url}`)

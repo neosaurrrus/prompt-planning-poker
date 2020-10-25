@@ -48,7 +48,6 @@ export default function managePlans(state = {plans:[], loading: false }, action)
                 } 
         case 'GET_PLAN':
             console.log("GET_PLAN")
-            
             return {...state, 
                     plan: action.plan, 
                     stories: action.plan.stories,      

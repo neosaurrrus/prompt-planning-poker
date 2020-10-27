@@ -69,7 +69,6 @@ class AppContainer extends Component {
             <Intro></Intro>
             </Route>
           </Switch>
-
         </Router>
 
        

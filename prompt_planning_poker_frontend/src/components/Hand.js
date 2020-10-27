@@ -1,32 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Card from './Card'
 
-class Hand extends Component{
+function Hand(props){
 
-    handleClick = (e) => {
-      this.props.addPlayer(this.props.plan,this.props.story, {name:this.props.user.userName,score: Number(e.target.innerText)})
-  }
-  
-
-    render(){
-        return (
-            <div className='Hand'>
-              <h2>Choose a Card to Play</h2>
-                  <div className='card-container'>
-                  <div className='card card-1' onClick={this.handleClick} name='1' value='1'>1</div>
-                  <div className='card card-2' onClick={this.handleClick} name='2' value='2'>2</div>
-                  <div className='card card-3' onClick={this.handleClick} name='3' value='3'>3</div>
-                  <div className='card card-4' onClick={this.handleClick} name='4' value='5'>5</div>
-                  <div className='card card-5' onClick={this.handleClick} name='5' value='8'>8</div>
-                  <div className='card card-6' onClick={this.handleClick} name='13' value='13'>13</div>
-                  <div className='card card-7' onClick={this.handleClick} name='21' value='21'>21</div>
-                  <div className='card card-8' onClick={this.handleClick} name='34' value='34'>34</div>
-                  <div className='card card-9' onClick={this.handleClick} name='55' value='55'>55</div>
-                  <div className='card card-10' onClick={this.handleClick} name='89' value='89'>89</div>
-                </div>
+    const handleClick = (e) => {
+      props.addPlayer(props.plan,props.story, {name:props.user.userName,score: Number(e.target.innerText)})
+   }
+    return (
+        <div className='Hand'>
+            <h2>Choose a Card to Play</h2>
+                <div className='card-container'>
+                    <Card value='1' handleClick={handleClick}/>
+                    <Card value='3' handleClick={handleClick}/>
+                    <Card value='5' handleClick={handleClick}/>
+                    <Card value='8' handleClick={handleClick}/>
+                    <Card value='13' handleClick={handleClick}/>
+                    <Card value='21' handleClick={handleClick}/>
+                    <Card value='34' handleClick={handleClick}/>
+                    <Card value='55' handleClick={handleClick}/>
+                    <Card value='89' handleClick={handleClick}/>
             </div>
-        )
-    }
-
+        </div>
+    )
 }
 
 export default Hand

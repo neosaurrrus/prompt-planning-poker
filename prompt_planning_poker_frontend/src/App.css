@@ -228,22 +228,20 @@ nav input{
 }
 
 nav div {
-
   font-size:0.9em;
   width:30%
 }
 
 #new-plan{
-  border: 2px solid var(--whiteText);
-  border-radius: 10px;
   height:20px;
   padding: 5px;
   transition: 0.3s all
+  
 }
 
 #new-plan:hover{
-  background: var(--stories);
-  color: var(--darkText);
+  background: var(--darkShade);
+  color: var(--stories);
 }
 ::placeholder{
   color: var(--whiteText);

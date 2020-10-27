@@ -31,7 +31,8 @@ class StoriesContainer extends Component {
     if (!this.props.user || this.props.user.pin !== this.props.plan.pin) {
       return false
     } else if (this.props.user.pin === this.props.plan.pin) {
-      return <button onClick={this.handleAddStory}>{this.state.buttonText}</button>
+      return (<div><button onClick={this.handleAddStory}>{this.state.buttonText}</button>
+      </div>)
     }
   }
 

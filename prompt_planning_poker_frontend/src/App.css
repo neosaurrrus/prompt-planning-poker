@@ -1,29 +1,43 @@
 :root{
-  --toptail: rgb(0, 129, 167);
-  --plan: #00afb9;
+  --toptail: rgba(0, 129, 167,0.7);
+  --plan: rgba(0, 175, 185, 0.9);
   --game: #FDFCDC;
   --game: #FDFCDC;
   --stories: #FED9B7;
   --whiteText: #e8fafa;
   --darkText: #3a3636;
-  background:  #FFEFBA;
+  background: #3f3b2b;
   --darkShade: rgba(0, 129, 167, 0.5);
   --blackShade: rgba(0, 0, 0, 0.2);
-  --lightShade: rgba(0, 129, 167, 0.3);
+  --lightShade: rgba(0, 129, 167, 0.7);
   --lightestShade: rgba(0, 129, 167, 0.1);
 }
 .App {
+ 
   min-height: 100%;
   text-align: center;
   box-sizing: border-box;
   color: var(--whiteText);
   font-family: 'Archivo Narrow', sans-serif;
   line-height: 0.5;
-  background: linear-gradient(to top, #FFEFBA, rgb(252, 247, 212))
+  background: linear-gradient(to top, #3f3b2d, rgb(87, 85, 72));
+  overflow-y: hidden;
+ 
+
 }
 
 #intro {
+  background-image: url("./planning_poker.jpg");
+  background-size: cover;
+  filter: blur(8px);
   line-height: 1.6;
+  width:100%;
+  height:100vh;
+  padding: 0;
+  margin:0;
+  
+  /* mix-blend-mode: exclusion; */
+
 }
 
 button, input {
@@ -112,7 +126,7 @@ button:hover {
   grid-area: Stories; 
   background:var(--lightShade); 
   max-height:90vh;
-  color: var(--darkText);
+  color: var(--whiteText);
   overflow-y: scroll;
   font-weight: normal;
   margin-right: 7px;
@@ -129,17 +143,27 @@ button:hover {
   align-items: center;
   margin: 0 auto;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  
+
   padding: 10px;
+  border-radius: 20px;
+}
+
+.story-input-container{
+  width: 90%
 }
 .story-input input{
-  background: var(--lightestShade);
-  border: 1px solid var(--whiteText);
+  background: var(--plan);
+  border: none;
+  border-radius: 20px;
   font-family: 'Archivo Narrow', sans-serif;
-  font-size: 1em
+  font-size: 1em;
+
+  margin-bottom: 10px;
+  width: 100%;
 }
 
 .story{
+  text-align: left;
   border-radius: 20px;
   background: var(--lightestShade);
   width:90%;
@@ -147,9 +171,21 @@ button:hover {
   padding: 8px;
   border: 1px solid var(--lightShade);
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  color: var(--whiteText)
 }
 
-.Game { grid-area: Game; color: var(--darkText) ;font-weight: normal; display: flex;
+#story-submit{
+  width: 30%;
+  transition: all 0.3s;
+  color: var(--whiteText);
+  background: var(--blackShade);
+}
+#story-submit:hover{
+ background: var(--plan);
+ color: var(--whiteText)
+}
+
+.Game { grid-area: Game; color: var(--whiteText) ;font-weight: normal; display: flex;
 
   align-items: center;
   flex-direction: column;
@@ -253,7 +289,8 @@ nav div {
 .form-input {
   margin: 50px auto;
   padding: 20px;
-  border:5px var(--stories) solid;
+  border:1px var(--stories) solid;
+  border-radius: 20px;
   min-height: 10vh;
   width: 50%;
   display: flex;
@@ -269,6 +306,7 @@ nav div {
 .form-input * {
   padding: 10px;
   line-height: 1;
+  border-radius: 20px;
   
 }
 

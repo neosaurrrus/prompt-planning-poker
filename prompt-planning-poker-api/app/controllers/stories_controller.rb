@@ -30,10 +30,12 @@ class StoriesController < ApplicationController
     def update
         story = Story.find(params[:id])
         
+        
+        story.update(story_params)
         if params[:reset] 
             story.players.delete_all
+            story.revealed = false
         end
-        story.update(story_params)
         story.set_score
         story.save
         render json: story

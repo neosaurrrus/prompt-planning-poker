@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2020_10_15_112510) do
 
   create_table "plans", force: :cascade do |t|
     t.string "name"
-    t.integer "pin"
+    t.string "pin"
     t.string "url"
     t.boolean "complete", default: false
     t.integer "selectedStory"

@@ -21,7 +21,7 @@ class PlanInput extends Component {
     e.preventDefault()
     const url = cuid()
     this.props.addPlan({name: this.state.name, pin: this.state.pin, url})
-    this.props.setUserName({userName:this.state.userName, pin: Number(this.state.pin)})
+    this.props.setUser({userName:this.state.userName, pin: this.state.pin})
     this.setState({
       complete: true,
       completedUrl: `/plans/${url}`

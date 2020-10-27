@@ -53,8 +53,10 @@ class AppContainer extends Component {
           </Switch>
         </Router>
      )
+    } else {
+      return null
     }
-   return null
+ 
   }
 }
 

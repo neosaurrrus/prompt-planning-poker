@@ -14,11 +14,8 @@ class StoryInput extends Component {
     if (e.target.value.length === 1 && e.target.name === 'as_a'){
       value = value.toUpperCase()
     }
-
     this.setState({
         [e.target.name]: value
-    //  Need to make sure first char is capitalised for owner and plan too
-      
     })
   }
 
@@ -32,7 +29,6 @@ class StoryInput extends Component {
     })
   }
   render() {
- 
     return (
         <form className='story-input' style={{ display: this.props.formDisplay }}onSubmit={this.handleSubmit}>
           
@@ -48,7 +44,6 @@ class StoryInput extends Component {
             <label htmlFor="owner">So I can</label>
             <input type="text" onChange={this.handleChange} name="i_can" value={this.state.i_can}/>.
           </div>
-         
           <input type="submit" value="Add Story"></input>
         </form>
 

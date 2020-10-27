@@ -1,20 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
-class Player extends Component{
+function Player(props){
      
-    renderReveal = () => {
-        return this.props.revealed ? this.props.player.score : '???'
+    const renderReveal = () => {
+        return props.revealed ? props.player.score : 'Unknown'
     }
-
-    render(){
-        return (
-            <div className='player'>
-                <span>{this.props.player.name}</span>  <span>{this.renderReveal()}</span>
-            </div>
-           
-         )
-    }
+    return (
+        <div className='player'>
+            <span>{props.player.name}</span>  <span>{renderReveal()}</span>
+        </div>
+        
+        )
+  
      
 }
 

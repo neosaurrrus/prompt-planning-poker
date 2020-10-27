@@ -4,17 +4,13 @@ import Player from './Player'
 class Table extends Component{
   
     state = {
-       
         story: this.props.story
     }
-
-    
-
     toggleRevealed = () => {
         this.props.toggleStoryReveal(this.props.plan, this.props.story)
     }
 
-    handleReset = (e) => {    //clears all player's previous votes.
+    handleReset = (e) => {   
         this.props.deletePlayers(this.props.plan, this.props.story)
     }
     renderPlayers = () => {
@@ -29,7 +25,6 @@ class Table extends Component{
             <button onClick={this.handleReset} name='reset'>Reset</button> 
             <button onClick={this.toggleRevealed} name='reveal'>Reveal</button>
           </span>
-            
           )
         }
       }
@@ -49,7 +44,6 @@ class Table extends Component{
         )
     }
 }
-
 
 Table.defaultProps = {
     story: {as_a: 'fail'}

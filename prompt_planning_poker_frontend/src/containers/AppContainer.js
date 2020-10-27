@@ -5,7 +5,7 @@ import PlanInput from '../components/PlanInput';
 import Intro from '../components/Intro'
 import PlanContainer from './PlanContainer';
 
-import { getPlans, addPlan, deletePlan, setUserName } from '../actions/planActions'
+import { getPlans, addPlan, deletePlan, setUser } from '../actions/planActions'
 
 import {
   BrowserRouter as Router,
@@ -18,13 +18,12 @@ import {
 class AppContainer extends Component {
 
   state = {
-    userName:"GUEST",
-    pin: null
+    userName:"GUEST"
   }
 
   componentDidMount(){
     this.props.getPlans()
-    this.props.setUserName(this.state)
+    this.props.setUser(this.state)
   }
   componentWillReceiveProps(){
     this.setState(this.props.user)
@@ -37,12 +36,12 @@ class AppContainer extends Component {
   }
   handlePinChange = (e) => {
     this.setState({
-      [e.target.name]: Number(e.target.value)
+      [e.target.name]: e.target.value
     }, this.afterSetState)
   }
 
   afterSetState = () => {
-    this.props.setUserName(this.state)
+    this.props.setUser(this.state)
   }
 
   render() {
@@ -61,7 +60,7 @@ class AppContainer extends Component {
        
           <Switch>
             <Route path="/new-plan">
-              <PlanInput setUserName={this.props.setUserName} addPlan={this.props.addPlan} getPlanUrl={this.getPlanUrl} />
+              <PlanInput setUser={this.props.setUser} addPlan={this.props.addPlan} getPlanUrl={this.getPlanUrl} />
             </Route>
             <Route path="/plans/:url">
             <PlanContainer deletePlan={this.props.deletePlan} plans={this.props.plans} />
@@ -93,7 +92,7 @@ const mapDispatchToProps = dispatch => {
     getPlans: () => dispatch(getPlans()),
     deletePlan: (id) => dispatch(deletePlan(id)),
     addPlan: (plan) => dispatch(addPlan(plan)),
-    setUserName: (user) => dispatch(setUserName(user))
+    setUser: (user) => dispatch(setUser(user))
 
   }
 }

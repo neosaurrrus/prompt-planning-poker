@@ -1,7 +1,7 @@
 
-export const setUserName = user => {
+export const setUser = user => {
     return (dispatch) => {
-        dispatch({ type:'SET_USERNAME', user: user})
+        dispatch({ type:'SET_USER', user: user})
     }
 }
 

@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import PlanInput from '../components/PlanInput';
 import Intro from '../components/Intro'
 import PlanContainer from './PlanContainer';
+import UserPin from '../components/UserPin'
 
 import { getPlans, addPlan, deletePlan, setUser } from '../actions/planActions'
 
@@ -29,35 +30,16 @@ class AppContainer extends Component {
     this.setState(this.props.user)
   }
 
-  handleNameChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value.toUpperCase(),
-    }, this.afterSetState)
-  }
-  handlePinChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value
-    }, this.afterSetState)
-  }
-
-  afterSetState = () => {
-    this.props.setUser(this.state)
-  }
 
   render() {
     if (this.props.user){
-      
       return (
         <Router>
         <nav className='App-header'>
               <Link to="/">Prompt-Planning-Poker</Link>
-              <div>
-                <label>Name:</label><input type='text' name='userName' value={this.props.user.userName} maxLength='10' onChange={this.handleNameChange} placeholder='ANON'></input>
-                <label>PIN:</label><input type='password' id='pin' name='pin' value={this.props.user.pin} maxLength='4' onChange={this.handlePinChange} placeholder=''></input>
-              </div>
+              <UserPin />
               <Link id='new-plan'to="/new-plan">New Session</Link>
         </nav>
-       
           <Switch>
             <Route path="/new-plan">
               <PlanInput setUser={this.props.setUser} addPlan={this.props.addPlan} getPlanUrl={this.getPlanUrl} />
@@ -70,9 +52,7 @@ class AppContainer extends Component {
             </Route>
           </Switch>
         </Router>
-
-       
-    )
+     )
     }
    return null
   }

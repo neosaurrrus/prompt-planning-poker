@@ -13,7 +13,7 @@ function Intro(){
              <h1>Prompt <br></br>Planning<br></br>Poker</h1>
               </div>
             <div id='blurb'>
-                <h4>Easy Estimation for SCRUM Teams</h4>
+                <h4>Easy Estimation for SCRUM Teams copy to clipboard. guest toast</h4>
             <div id="intro-buttons">
                 <span id='intro-button-container'>
                     <button><Link id='new-plan'to="/new-plan">New Plan</Link></button>
@@ -33,9 +33,9 @@ function Intro(){
                 <p>One pitfall of Planning Poker resides in making “convergence to consensus estimate” an obligation rather than a natural result of the conversation that follows a round of play. Doing so runs the risk of erasing useful information, i.e. the degree of uncertainty conveyed by a wide spread in the initial estimates.</p>
                 <h3>How to do it</h3>
                 <h4>Setup</h4>
-                <p>A plan is set up by the moderator, typically the Product Owner. The moderator PIN allows any number of people to perform moderator functions. A plan should be populated with user stories. When satisfied share the URL with the team members. Be sure ou are able to verbally communicate with the team.</p> 
-                <h4>Playing a Round</h4>
-                <p>Each team member that accesses the url, cna play cards bearing numerical values appropriate for points estimation of a user story. The moderator briefly states the intent and value of a story. Each member of the development team silently picks an estimate card. This will appear to everyone face down. When the moderator is ready, the cards are turned face up.</p>
+                <p>First, a plan is set up by the moderator, typically the Product Owner. The moderator PIN allows any number of people to perform moderator functions. A plan should be populated with user stories. When satisfied, share the URL with the team members.  Ensure the team is on a call to allow discussion. </p> 
+                <h4>First Round</h4>
+                <p>Each team member that accesses the url, can play cards bearing numerical values appropriate for points estimation of a user story. The moderator briefly states the intent and value of a story. Each member of the development team silently picks an estimate card. This will appear to everyone face down. When the moderator is ready, the cards are turned face up.</p>
                 <h4>Post-Round</h4>
                 <p> Now is the time for discussion. Typically, two (or more) team members who gave the high and low estimate justify their reasoning. After brief discussion, the moderator can reset the table, and the team may seek convergence toward a consensus estimate by playing one or more further rounds. </p>
             </div>

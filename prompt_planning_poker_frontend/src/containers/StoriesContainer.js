@@ -31,7 +31,7 @@ class StoriesContainer extends Component {
     if (!this.props.user || this.props.user.pin !== this.props.plan.pin) {
       return false
     } else if (this.props.user.pin === this.props.plan.pin) {
-      return (<div><button onClick={this.handleAddStory}>{this.state.buttonText}</button>
+      return (<div><button id='story-input-button' onClick={this.handleAddStory}>{this.state.buttonText}</button>
       </div>)
     }
   }
@@ -43,6 +43,7 @@ class StoriesContainer extends Component {
       <p></p>
         {this.checkPin()}
         <StoryInput addStory={this.props.addStory} formDisplay={this.state.formDisplay} buttonText={this.state.buttonText} plan={this.props.plan} />
+        <br></br>
         <Stories plan={this.props.plan} stories={this.props.stories} editPlan={this.props.editPlan} deleteStory={this.props.deleteStory}/>
 
   </div>

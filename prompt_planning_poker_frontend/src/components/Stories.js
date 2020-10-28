@@ -17,7 +17,7 @@ class Stories extends Component{
             return (
                 <div>
                     <h4>Selected Story</h4>
-                     <Story story={selectedStory} user={this.props.user} key={selectedStory.id} plan={this.props.plan} deleteStory={this.props.deleteStory} editPlan={this.props.editPlan}/>
+                     <Story className='story selected-story' story={selectedStory} user={this.props.user} key={selectedStory.id} plan={this.props.plan} deleteStory={this.props.deleteStory} editPlan={this.props.editPlan}/>
                 </div>
             )
         } else if (stories && stories.length > 1){
@@ -28,9 +28,9 @@ class Stories extends Component{
             return (
                 <div>
                     <h4>Selected Story</h4>
-                     <Story story={selectedStory} key={selectedStory.id} plan={this.props.plan} user={this.props.user} deleteStory={this.props.deleteStory} editPlan={this.props.editPlan}/>
+                     <Story className='story selected-story' story={selectedStory} key={selectedStory.id} plan={this.props.plan} user={this.props.user} deleteStory={this.props.deleteStory} editPlan={this.props.editPlan}/>
                      <h4>Other Stories</h4>
-                     {otherStories.map(story => <Story story={story} user={this.props.user} key={story.id} plan={this.props.plan} deleteStory={this.props.deleteStory} editPlan={this.props.editPlan}/>)}
+                     {otherStories.map(story => <Story className='story other-story' story={story} user={this.props.user} key={story.id} plan={this.props.plan} deleteStory={this.props.deleteStory} editPlan={this.props.editPlan}/>)}
                 </div>
             )
         }

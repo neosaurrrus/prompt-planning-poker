@@ -22,24 +22,24 @@ class Story extends Component{
         )
     }
     renderScore = () => { 
-        if (this.props.story && this.props.story.score > 0 && this.props.story.players.length > 1) {
+        if (this.props.story && this.props.story.score > 0 && this.props.story.revealed) {
             return (
             <div>
-                <h5>Score: {this.props.story.score}</h5>
+                <h5>Number of Players: {this.props.story.players.length}</h5>
+                <h5>Average Score: {this.props.story.score}</h5>
             </div>
              )
-        } else if (this.props.story.players === 1){
+        } else if (this.props.story && this.props.story.players.length === 0 ) { 
             return (
-                <div>
-                <h5>One more player needed for Score</h5>
-              </div>
+                <h5>Unplayed</h5>
             )
-            
-        } else { 
+        } else if (this.props.story && !this.props.story.revealed) { 
             return (
                 <div>
-                    <h5>Not Scored Yet</h5>
+                    <h5>Number of Players: {this.props.story.players.length}</h5>
+                    <h5>Unrevealed</h5>
                 </div>
+                
             )
         }
     }
@@ -63,7 +63,7 @@ class Story extends Component{
     
     render(){
         return (
-            <div className='story'>
+            <div className={this.props.className}>
                 {this.renderStory()}
                 {this.renderScore()}
                 {this.renderButtons()}

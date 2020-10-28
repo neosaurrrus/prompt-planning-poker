@@ -174,11 +174,13 @@ button, .Plan input{
   transition: 0.3s all;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
 }
 
 button:hover {
   background: var(--plan);
-  color: var(--darkText)
+  color: var(--darkText);
+  transform: scale(1.1);
 }
 #plan-edit{
   font-family: 'Julius Sans One', sans-serif;
@@ -385,7 +387,7 @@ nav div {
 .form-input input {
   font-size: calc(8px + 2vmin);
   background: var(--plan);
-  border: 5px solid var(--stories);
+  border: 2px solid var(--stories);
   color: var(--whiteText);
   width: 60%;
   text-align: center;
@@ -397,12 +399,14 @@ nav div {
 }
 
 #plan-submit{
-  width: 30%;
+  width: 20%;
   transition: all 0.3s
+
 }
 #plan-submit:hover{
- background: var(--plan);
- color: var(--darkText)
+ background: var(--stories);
+ color: var(--darkText);
+ transform: scale(1.1);
 }
 
 

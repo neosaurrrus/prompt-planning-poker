@@ -4,41 +4,112 @@
   --game: #FDFCDC;
   --game: #FDFCDC;
   --stories: #FED9B7;
-  --whiteText: #e8fafa;
+  --whiteText: rgb(223, 223, 223);
   --darkText: #3a3636;
-  background: #3f3b2b;
+  background: rgb(32, 32, 32);
   --darkShade: rgba(0, 129, 167, 0.5);
   --blackShade: rgba(0, 0, 0, 0.2);
+  --superBlackShade: rgba(0, 0, 0, 0.7);
   --lightShade: rgba(0, 129, 167, 0.7);
   --lightestShade: rgba(0, 129, 167, 0.1);
 }
 .App {
- 
   min-height: 100%;
   text-align: center;
   box-sizing: border-box;
   color: var(--whiteText);
   font-family: 'Archivo Narrow', sans-serif;
   line-height: 0.5;
-  background: linear-gradient(to top, #3f3b2d, rgb(87, 85, 72));
-  overflow-y: hidden;
- 
-
+  background: linear-gradient(to bottom, rgb(55, 55, 55), rgb(32, 32, 32));
+  overflow-y: clip;
+  
 }
 
-#intro {
-  background-image: url("./planning_poker.jpg");
-  background-size: cover;
-  filter: blur(8px);
+
+
+#intro-container{
+
   line-height: 1.6;
+  display: grid;
   width:100%;
   height:100vh;
   padding: 0;
   margin:0;
-  
-  /* mix-blend-mode: exclusion; */
+  display: grid;
+  grid-template-columns: 5fr 5fr;
+  grid-template-rows: 1fr;
 
 }
+
+#intro-backdrop {
+  background-image: url("./planning_poker.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(8px);
+  height: 98%;
+  width: 100%;
+  grid-area: 1 / 1 / 2 / 3
+
+}
+
+#intro {
+  color: var(--plan);
+  background: var(--superBlackShade);
+  z-index: 2;
+  text-shadow: 2px 2px #000000; 
+ text-align: left;
+  line-height: 1.6;
+  
+  width: 100%;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(16px + 2vmin);
+  grid-area: 1 / 1 / 2 / 2;
+  
+}
+
+#blurb{
+  color: var(--whiteText);
+  background: var(--superBlackShade);
+  font-size: calc(16px + 2vmin);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  grid-area: 1 / 2 / 2 / 3;
+  text-align: left;
+}
+
+#intro-buttons{
+  display:flex;
+  justify-content: center;
+  width: 100%;
+} 
+
+
+#info{
+  font-size: calc(10px + 2vmin);
+  line-height: 1.6;
+  min-height: 500px;
+  margin: 0 auto;
+  width: 70%;
+  text-align: left;
+}
+#info h3{
+  color: var(--plan);
+}
+#blurb button{
+  min-width: 170px;
+  font-size: calc(8px + 2vmin);
+  padding: 0 20px;
+}
+
+
+
 
 button, input {
   font-family: 'Archivo Narrow', sans-serif;
@@ -65,7 +136,8 @@ h4{
 }
 a{
  
-  color: var(--whiteText)
+  color: var(--whiteText);
+  text-decoration:none;
 }
 .grid-container {
   height:95vh; 
@@ -334,17 +406,7 @@ nav div {
 }
 
 
-article {
-  color: var(--darkText);
-  margin: 50px auto;
-  width: 80%;
-  min-height: 50vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  font-size: calc(10px + 2vmin);
-}
+
 
 
 /* width */

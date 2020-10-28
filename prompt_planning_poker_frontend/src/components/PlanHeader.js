@@ -39,14 +39,16 @@ class PlanHeader extends Component{
     }
 
     getScore = () => {
-      if (this.props.stories && this.props.stories.length > 1) {
-        let scores = this.props.stories.map( story => story.score)
-        let totalScore = scores.reduce((acc, score) => acc+score)
-        return totalScore === null ? 'Now score some stories!' : `Total Score: ${totalScore}`
-      
+      if (this.props.stories && this.props.stories.length > 1 ) {
+        let revealedStories = this.props.stories.filter (story => story.revealed)
+        let revealedPlayedStories = revealedStories.filter(story => story.players.length > 0)
+        let scores = revealedStories.map( story => story.score)
+        if (scores.length>1) {
+          let totalScore = scores.reduce((acc, score) => acc+score)
+          return totalScore === null ? 'Now score some stories!' : `Estimated Velocity: ${totalScore} out of ${revealedPlayedStories.length} Stories`
+        }
       } 
-      
-      return `Add some stories and get playing`
+      return `Play more Stories to see the estimated team velocity`
     }
 
     checkPin = () => {

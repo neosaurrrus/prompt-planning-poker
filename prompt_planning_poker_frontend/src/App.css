@@ -135,7 +135,6 @@ h4{
   line-height: 1;
 }
 a{
- 
   color: var(--whiteText);
   text-decoration:none;
 }
@@ -231,9 +230,13 @@ button:hover {
   border-radius: 20px;
   font-family: 'Archivo Narrow', sans-serif;
   font-size: 1em;
-
+color: var(--whiteText);
   margin-bottom: 10px;
   width: 100%;
+}
+
+#story-input-button {
+  margin-bottom: 10px;
 }
 
 .story{
@@ -257,6 +260,10 @@ button:hover {
 #story-submit:hover{
  background: var(--plan);
  color: var(--whiteText)
+}
+
+.selected-story{
+  background: var(--plan);
 }
 
 .Game { grid-area: Game; color: var(--whiteText) ;font-weight: normal; display: flex;
@@ -385,8 +392,8 @@ nav div {
 }
 
 .form-input input {
-  font-size: calc(8px + 2vmin);
-  background: var(--plan);
+  font-size: calc(6px + 2vmin);
+  background: var(--darkShade);
   border: 2px solid var(--stories);
   color: var(--whiteText);
   width: 60%;
@@ -400,8 +407,8 @@ nav div {
 
 #plan-submit{
   width: 20%;
-  transition: all 0.3s
-
+  transition: all 0.3s;
+  background: var(--plan);
 }
 #plan-submit:hover{
  background: var(--stories);

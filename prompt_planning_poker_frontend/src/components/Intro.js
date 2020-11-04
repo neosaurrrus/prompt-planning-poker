@@ -13,7 +13,7 @@ function Intro(){
              <h1>Prompt <br></br>Planning<br></br>Poker</h1>
               </div>
             <div id='blurb'>
-                <h4>Easy Estimation for SCRUM Teams copy to clipboard. guest toast</h4>
+                <h4>Easy Estimation for SCRUM Teams</h4>
             <div id="intro-buttons">
                 <span id='intro-button-container'>
                     <button><Link id='new-plan'to="/new-plan">New Plan</Link></button>

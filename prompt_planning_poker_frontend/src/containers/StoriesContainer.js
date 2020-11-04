@@ -36,10 +36,18 @@ class StoriesContainer extends Component {
     }
   }
 
+  checkRevealedStories = () => {
+    const revealedStories = this.props.stories.filter(story => story.revealed === true)
+    if (revealedStories.length > 0) {
+      return <h4>{revealedStories.length} revealed</h4>
+    }
+  } 
   render() {
+    
     return (
     <div className='Stories'>
       <h2>{this.props.stories.length} Stories</h2>
+      <h4>{this.checkRevealedStories()}</h4>
       <p></p>
         {this.checkPin()}
         <StoryInput addStory={this.props.addStory} formDisplay={this.state.formDisplay} buttonText={this.state.buttonText} plan={this.props.plan} />

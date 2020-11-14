@@ -48,7 +48,7 @@ class Story extends Component{
     }
     renderButtons = () => { 
         if (this.props.story && this.checkPin()) return (
-            <div>
+            <div className="story-buttons">
                 <button onClick={this.handleSelect}>Select Story</button>
                 <button onClick={this.handleDelete}>Delete Story</button>
             </div>

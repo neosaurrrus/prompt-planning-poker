@@ -22,26 +22,29 @@ class Story extends Component{
         )
     }
     renderScore = () => { 
-        if (this.props.story && this.props.story.score > 0 && this.props.story.revealed) {
-            return (
-            <div>
-                <h5>Number of Players: {this.props.story.players.length}</h5>
-                <h5>Average Score: {this.props.story.score}</h5>
-            </div>
-             )
-        } else if (this.props.story && this.props.story.players.length === 0 ) { 
+        let numberOfPlayers = 0
+        this.props.story.players ? numberOfPlayers = this.props.story.players.length : numberOfPlayers = 0
+        if (this.props.story && this.props.story.players && this.props.story.players.length === 0 ) { 
             return (
                 <h5>Unplayed</h5>
             )
-        } else if (this.props.story && !this.props.story.revealed) { 
+        }
+        else if (this.props.story && !this.props.story.revealed) { 
             return (
                 <div>
-                    <h5>Number of Players: {this.props.story.players.length}</h5>
+                    <h5>Number of Players: {numberOfPlayers}</h5>
                     <h5>Unrevealed</h5>
                 </div>
                 
             )
-        }
+        } else if (this.props.story && this.props.story.score > 0 && this.props.story.revealed) {
+            return (
+            <div>
+                <h5>Number of Players: {numberOfPlayers}</h5>
+                <h5>Average Score: {this.props.story.score}</h5>
+            </div>
+             )
+        } 
     }
     renderButtons = () => { 
         if (this.props.story && this.checkPin()) return (

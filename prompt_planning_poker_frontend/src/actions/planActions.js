@@ -1,4 +1,5 @@
 
+
 export const setUser = user => {
     return (dispatch) => {
         dispatch({ type:'SET_USER', user: user})
@@ -8,7 +9,7 @@ export const setUser = user => {
 export const getPlans = () => {
     return (dispatch) => {
         dispatch({ type: 'LOADING_PLANS'})
-    fetch('http://localhost:3000/plans')
+    fetch(`${process.env.REACT_APP_API_URL}/plans`)
     .then(resp => resp.json())
     .then(res => {
         dispatch({type: 'GET_PLANS', plans: res})
@@ -19,7 +20,7 @@ export const getPlans = () => {
 export const getPlan = (url) => {
     return (dispatch) => {
         dispatch({ type: 'LOADING_PLANS'})
-    fetch(`http://localhost:3000/plans/${url}`)
+    fetch(`${process.env.REACT_APP_API_URL}/plans/${url}`)
     .then(resp => resp.json())
     .then(res => {
         dispatch({type: 'GET_PLAN', plan: res})
@@ -31,7 +32,7 @@ export const addPlan = (plan) => {
     const data = {...plan}
     return (dispatch) => {
         dispatch({ type: 'LOADING_PLANS'})
-    fetch('http://localhost:3000/plans', {
+    fetch(`${process.env.REACT_APP_API_URL}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -41,7 +42,7 @@ export const addPlan = (plan) => {
     })
     .then(resp => resp.json())
     .then(res => {
-        fetch('http://localhost:3000/plans')
+        fetch(`${process.env.REACT_APP_API_URL}`)
         .then(resp => resp.json())
         .then(res => {
             dispatch({type: 'GET_PLANS', plans: res})
@@ -55,7 +56,7 @@ export const addPlan = (plan) => {
 export const deletePlan = (id) => { 
     return (dispatch) => {
         dispatch({ type: 'LOADING_PLANS'})
-    fetch(`http://localhost:3000/plans/${id}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/plans/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -65,7 +66,7 @@ export const deletePlan = (id) => {
     })
     .then(resp => resp.json())
     .then(res => {
-        fetch('http://localhost:3000/plans')
+        fetch(`${process.env.REACT_APP_API_URL}/plans`)
         .then(resp => resp.json())
         .then(res => {
             dispatch({type: 'GET_PLANS', plans: res})
@@ -80,7 +81,7 @@ export const editPlan = (plan,changedKey) => {
     return (dispatch) => {
         dispatch({ type: 'LOADING_PLANS'})
     const newPlan = {...plan, ...changedKey}
-    fetch(`http://localhost:3000/plans/${plan.url}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/plans/${plan.url}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -90,7 +91,7 @@ export const editPlan = (plan,changedKey) => {
     })
     .then(resp => resp.json())
     .then(res => {
-        fetch(`http://localhost:3000/plans/${plan.url}`)
+        fetch(`${process.env.REACT_APP_API_URL}/plans/${plan.url}`)
         .then(resp => resp.json())
         .then(res => {
             dispatch({type: 'GET_PLAN', plan: res})

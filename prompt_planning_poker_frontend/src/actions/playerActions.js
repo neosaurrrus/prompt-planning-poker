@@ -4,7 +4,7 @@ export const getPlayers = (plan, story) => {
     return (dispatch) => {
         dispatch({ type: 'LOADING_PLAYERS'})
 
-    fetch(`http://localhost:3000/plans/${plan.url}/stories/${story.id}`)
+    fetch(`${process.env.REACT_APP_API_URL}/plans/${plan.url}/stories/${story.id}`)
     .then(resp => resp.json())
     .then(res => {
         dispatch({type: 'GET_PLAYERS', players: res.players})
@@ -18,7 +18,7 @@ export const addPlayer = (plan, story, player) => {
     const data = {plan_id: plan.id, story_id: story.id, player}
     return (dispatch) => {
         dispatch({ type: 'LOADING_PLAYERS'})
-    fetch(`http://localhost:3000/plans/${plan.url}/stories/${story.id}/players`, {
+    fetch(`${process.env.REACT_APP_API_URL}/plans/${plan.url}/stories/${story.id}/players`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -28,7 +28,7 @@ export const addPlayer = (plan, story, player) => {
     })
     .then(resp => resp.json())
     .then(res => {
-        fetch(`http://localhost:3000/plans/${plan.url}`)
+        fetch(`${process.env.REACT_APP_API_URL}/plans/${plan.url}`)
         .then(resp => resp.json())
         .then(res => {
           
@@ -40,26 +40,3 @@ export const addPlayer = (plan, story, player) => {
     }
 }
 
-// export const deletePlayer = (plan, story) => { 
-//     return (dispatch) => {
-//         dispatch({ type: 'LOADING_PLAYERS'})
-//     fetch(`http://localhost:3000/plans/${plan.url}/stories/${story.id}`, {
-//         method: "DELETE",
-//         headers: {
-//             "Content-Type": "application/json",
-//             "Accept": "application/json",
-//         },
-//         body: JSON.stringify(story.id)
-//     })
-//     .then(resp => resp.json())
-//     .then(res => {
-//         fetch(`http://localhost:3000/plans/${plan.url}`)
-//         .then(resp => resp.json())
-//         .then(res => {
-//             dispatch({type: 'GET_PLAN', plan: plan})
-//               })
-//         .catch(err => console.log(err))
-//           })
-//     .catch((err) => console.log(err))
-//     }
-// }

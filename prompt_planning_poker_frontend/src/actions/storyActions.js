@@ -5,7 +5,7 @@ export const getStories = (plan = {url: "testurl1"}) => {
     return (dispatch) => {
         dispatch({ type: 'LOADING_STORIES'})
 
-    fetch(`http://localhost:3000/plans/${plan.url}/stories`)
+    fetch(`${process.env.REACT_APP_API_URL}/plans/${plan.url}/stories`)
     .then(resp => resp.json())
     .then(res => {
         dispatch({type: 'GET_STORIES', stories: res})
@@ -17,7 +17,7 @@ export const getStory = (plan) => {
    console.log(plan)
     return (dispatch) => {
         dispatch({ type: 'LOADING_STORIES'})
-    fetch(`http://localhost:3000/plans/${plan.url}/stories/${plan.selectedStory}`)
+    fetch(`${process.env.REACT_APP_API_URL}/plans/${plan.url}/stories/${plan.selectedStory}`)
     .then(resp => resp.json())
     .then(res => {
         console.log(res)
@@ -31,7 +31,7 @@ export const addStory = (story, plan) => {
     const data = {...story, url:plan.url}
     return (dispatch) => {
         dispatch({ type: 'LOADING_STORIES'})
-    fetch(`http://localhost:3000/plans/${plan.url}/stories`, {
+    fetch(`${process.env.REACT_APP_API_URL}/plans/${plan.url}/stories`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -41,7 +41,7 @@ export const addStory = (story, plan) => {
     })
     .then(resp => resp.json())
     .then(res => {
-        fetch(`http://localhost:3000/plans/${plan.url}/stories`)
+        fetch(`${process.env.REACT_APP_API_URL}/plans/${plan.url}/stories`)
         .then(resp => resp.json())
         .then(res => {
             dispatch({type: 'GET_STORIES', stories: res})
@@ -58,7 +58,7 @@ export const addStory = (story, plan) => {
 export const deleteStory = (id, plan) => { 
     return (dispatch) => {
         dispatch({ type: 'LOADING_STORIES'})
-    fetch(`http://localhost:3000/plans/${plan.url}/stories/${id}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/plans/${plan.url}/stories/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -68,7 +68,7 @@ export const deleteStory = (id, plan) => {
     })
     .then(resp => resp.json())
     .then(res => {
-        fetch(`http://localhost:3000/plans/${plan.url}`)
+        fetch(`${process.env.REACT_APP_API_URL}/plans/${plan.url}`)
         .then(resp => resp.json())
         .then(res => {
             dispatch({type: 'GET_PLAN', plan: plan})
@@ -85,7 +85,7 @@ export const deletePlayers = (plan, story) => {
     const newStory = {...story, reset: true}
     delete newStory.players
     debugger
-    fetch(`http://localhost:3000/plans/${plan.url}/stories/${story.id}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/plans/${plan.url}/stories/${story.id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -95,7 +95,7 @@ export const deletePlayers = (plan, story) => {
     })
     .then(resp => resp.json())
     .then(res => {
-        fetch(`http://localhost:3000/plans/${plan.url}`)
+        fetch(`${process.env.REACT_APP_API_URL}/plans/${plan.url}`)
         .then(resp => resp.json())
         .then(res => {
             
@@ -112,7 +112,7 @@ export const toggleStoryReveal = (plan, story) => {
         dispatch({ type: 'LOADING_PLANS'})
     const newStory = {...story}
     newStory.revealed = !newStory.revealed
-    fetch(`http://localhost:3000/plans/${plan.url}/stories/${story.id}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/plans/${plan.url}/stories/${story.id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -122,7 +122,7 @@ export const toggleStoryReveal = (plan, story) => {
     })
     .then(resp => resp.json())
     .then(res => {
-        fetch(`http://localhost:3000/plans/${plan.url}`)
+        fetch(`${process.env.REACT_APP_API_URL}/plans/${plan.url}`)
         .then(resp => resp.json())
         .then(res => {
             

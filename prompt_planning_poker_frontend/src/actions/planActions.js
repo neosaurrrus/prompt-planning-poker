@@ -42,7 +42,7 @@ export const addPlan = (plan) => {
     })
     .then(resp => resp.json())
     .then(res => {
-        fetch(`${process.env.REACT_APP_API_URL}`)
+        fetch(`${process.env.REACT_APP_API_URL}/plans`)
         .then(resp => resp.json())
         .then(res => {
             dispatch({type: 'GET_PLANS', plans: res})

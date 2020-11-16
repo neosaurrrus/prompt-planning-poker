@@ -28,20 +28,20 @@ export default function managePlans(state = {plans:[], loading: false }, action)
             }
            
         case 'GET_PLANS':
-            console.log("GET_PLANS")
+    
             
             return {...state, 
                     plans: action.plans,
                     loading: false
                 } 
         case 'GET_STORIES':
-            console.log("GET_STORIES")
+  
             return {...state, 
                     stories: action.stories,
                     loading: false
                 } 
         case 'GET_STORY':
-            console.log("GET_STORY")
+
             return {...state, 
                     story: action.story,
                     loading: false
@@ -61,8 +61,7 @@ export default function managePlans(state = {plans:[], loading: false }, action)
                     loading:true
                 }
 
-  
-            
+
 
         default:
             return state;

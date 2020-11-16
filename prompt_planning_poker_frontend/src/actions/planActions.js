@@ -32,7 +32,7 @@ export const addPlan = (plan) => {
     const data = {...plan}
     return (dispatch) => {
         dispatch({ type: 'LOADING_PLANS'})
-    fetch(`${process.env.REACT_APP_API_URL}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/plans`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

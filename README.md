@@ -1,12 +1,14 @@
 Welcome to Prompt Planning Poker, an app to help SCRUM teams perform estimations without egos!
 
+You can access the live version [here](https://promptplanningpoker.com)
+
 Built with React and Redux on the front-end and Rails on the backend.
 
-## Installation
+## Installation (if you want to run it ocally)
 Clone down this repo. Run bundler install to grab all the required dependancies.
 
-### For the backend
-Run `rails db:migrate` to build the relevent databases and `rail s` to run it locally. The index.html file in the front end folder will run the frontend.
+## For the backend
+In the API folder, run bundle install, run `rails db:migrate` to build the relevent databases and `rail s` to run it locally. The index.html file in the front end folder will run the frontend.
 
 ### For the backend
 Run `npm start` to run the React server locally. The index.html file in the front end folder will run the frontend.

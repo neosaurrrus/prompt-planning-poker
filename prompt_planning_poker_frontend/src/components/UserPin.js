@@ -33,7 +33,7 @@ class UserPin extends Component {
         return (
             <div>
                 <label>Name:</label><input type='text' className='login' name='userName' value={this.props.user.userName} maxLength='10' onChange={this.handleNameChange} placeholder='ANON'></input>
-                <label>PIN:</label><input type='password' classNane='login' name='pin' value={this.props.user.pin} maxLength='4' onChange={this.handlePinChange} placeholder=''></input>
+                <label>PIN:</label><input type='password' className='login' name='pin' value={this.props.user.pin} maxLength='4' onChange={this.handlePinChange} placeholder=''></input>
             </div>
         )
         }

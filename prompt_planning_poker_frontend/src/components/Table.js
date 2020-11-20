@@ -13,6 +13,7 @@ class Table extends Component{
     handleReset = (e) => {   
         this.props.deletePlayers(this.props.plan, this.props.story)
     }
+
     renderPlayers = () => {
         if (this.props.story.players) return this.props.story.players.map(player => <Player revealed={this.props.story.revealed} player={player} key={player.id}/>)
     }
@@ -34,7 +35,7 @@ class Table extends Component{
         return (
             <div className='Table'>
                 <h2>Scoring</h2>
-                <h4>As a {story.as_a}, I want to {story.want_to}, so I can {story.i_can}.</h4>
+                <h4>As a {story.as_a}, I want to {story.want_to}, so that{story.i_can}.</h4>
                 
                 {this.checkPin()}
                 {this.renderPlayers()}
@@ -46,7 +47,7 @@ class Table extends Component{
 }
 
 Table.defaultProps = {
-    story: {as_a: 'fail'}
+    story: {as_a: 'loading'}
 }
 
 export default Table

@@ -26,10 +26,10 @@ class StoryInput extends Component {
       i_can:""
     })
   }
+  
   render() {
     return (
         <form className='story-input' style={{ display: this.props.formDisplay }}onSubmit={this.handleSubmit}>
-          
           <div className='story-input-container'>
             <label htmlFor="name">As a </label><br></br>
             <input type="text" onChange={this.handleChange} name="as_a" value={this.state.as_a}/>  
@@ -39,7 +39,7 @@ class StoryInput extends Component {
             <input type="text" onChange={this.handleChange} name="want_to" value={this.state.want_to}/> 
           </div>
           <div className='story-input-container'>
-            <label htmlFor="owner">So I can</label><br></br>
+            <label htmlFor="owner">So that</label><br></br>
             <input type="text" onChange={this.handleChange} name="i_can" value={this.state.i_can}/>
           </div>
           <input type="submit" id='story-submit' value="Add"></input>

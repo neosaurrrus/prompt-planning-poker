@@ -6,10 +6,12 @@ class Story extends Component{
     handleDelete = (e) => {
         this.props.deleteStory(this.props.story.id, this.props.plan) 
     }
+    
     handleSelect= (e) => {
         e.preventDefault()
         this.props.editPlan(this.props.plan, {selectedStory: this.props.story.id}) 
     }
+
     renderStory = () => { 
         if (this.props.story) return (
             <div>
@@ -19,6 +21,7 @@ class Story extends Component{
             </div>
         )
     }
+
     renderScore = () => { 
         let numberOfPlayers = 0
         this.props.story.players ? numberOfPlayers = this.props.story.players.length : numberOfPlayers = 0
@@ -44,6 +47,7 @@ class Story extends Component{
              )
         } 
     }
+
     renderButtons = () => { 
         if (this.props.story && this.checkPin()) return (
             <div className="story-buttons">
@@ -60,8 +64,7 @@ class Story extends Component{
           return true
         }
       }
-  
-    
+
     render(){
         return (
             <div className={this.props.className}>

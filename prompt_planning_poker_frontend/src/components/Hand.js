@@ -15,10 +15,9 @@ function Hand(props){
                     <Card value='5' handleClick={handleClick}/>
                     <Card value='8' handleClick={handleClick}/>
                     <Card value='13' handleClick={handleClick}/>
-                    <Card value='21' handleClick={handleClick}/>
-                    <Card value='34' handleClick={handleClick}/>
-                    <Card value='55' handleClick={handleClick}/>
-                    <Card value='89' handleClick={handleClick}/>
+                    <Card value='20' handleClick={handleClick}/>
+                    <Card value='40' handleClick={handleClick}/>
+                    <Card value='100' handleClick={handleClick}/>
             </div>
         </div>
     )

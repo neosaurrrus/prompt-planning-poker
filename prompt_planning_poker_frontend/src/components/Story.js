@@ -10,8 +10,6 @@ class Story extends Component{
         e.preventDefault()
         this.props.editPlan(this.props.plan, {selectedStory: this.props.story.id}) 
     }
-
-   
     renderStory = () => { 
         if (this.props.story) return (
             <div>

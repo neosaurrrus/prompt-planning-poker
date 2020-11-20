@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
-
 import PlanInput from '../components/PlanInput';
 import Intro from '../components/Intro'
 import PlanContainer from './PlanContainer';
 import UserPin from '../components/UserPin'
-
 import { getPlans, addPlan, deletePlan, setUser } from '../actions/planActions'
 
 import {
@@ -14,8 +12,6 @@ import {
   Route,
   Link,
 } from "react-router-dom";
-
-
 class AppContainer extends Component {
 
   state = {
@@ -29,7 +25,6 @@ class AppContainer extends Component {
   componentWillReceiveProps(){
     this.setState(this.props.user)
   }
-
 
   render() {
     if (this.props.user){
@@ -59,7 +54,6 @@ class AppContainer extends Component {
  
   }
 }
-
 
 const mapStateToProps = state => { 
   return {plans: state.plans,

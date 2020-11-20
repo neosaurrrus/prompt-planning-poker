@@ -7,18 +7,15 @@ import {deletePlayers, getStory, toggleStoryReveal} from '../actions/storyAction
 
 class PokerContainer extends Component {
 
-
   state = {
     plan: {}
   }
-
 
  getStory= () =>{
     if (this.props.stories) {
         return this.props.stories.find(story => story.id === this.props.plan.selectedStory)
       }
   }
-  
 
   render() {
     if (this.props.plan.stories.length === 0) {
@@ -46,8 +43,6 @@ PokerContainer.defaultProps = {
 
 }
 
-
-
 const mapStateToProps = state => {return {
   plan: state.plan,
   stories: state.stories,
@@ -66,8 +61,3 @@ const mapDispatchToProps = dispatch => {
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PokerContainer)
 
-
-//Get story for the relavent plan (where it is selected)
-//give that as props to table.hand
-//get players returning for a given story (in controller)
-//

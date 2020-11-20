@@ -3,7 +3,6 @@ import cuid from 'cuid'
 import {Redirect} from 'react-router-dom'
 import PlanContainer from '../containers/PlanContainer'
 
-
 class PlanInput extends Component {
 
   state = {name:"", 
@@ -25,8 +24,8 @@ class PlanInput extends Component {
       complete: true,
       completedUrl: `/plans/${url}`
     })
-
   }
+
   render() {
     if (this.state.complete === true) {
       return <Redirect to={this.state.completedUrl}>
@@ -36,7 +35,7 @@ class PlanInput extends Component {
     return (
         <form className='form-input' onSubmit={this.handleSubmit}>
           <h2>New Planning Session</h2>
-          <label htmlFor="name">Session Name<br></br><span className='small'>E.g. The purpose of the user stories</span></label>
+          <label htmlFor="name">Session Name<br></br><span className='small'>E.g. The overrarching purpose of the user stories</span></label>
           <input type="text" maxLength='15' onChange={this.handleChange} name="name" value={this.state.name}/>
           <label htmlFor="userName"> Your Name <br></br><span className='small'>Used for estimating if you are joining in</span></label>
           <input type="text" maxLength='15'onChange={this.handleChange} name="userName" value={this.state.userName}/>
@@ -51,5 +50,3 @@ class PlanInput extends Component {
 };
 
 export default PlanInput;
-
-

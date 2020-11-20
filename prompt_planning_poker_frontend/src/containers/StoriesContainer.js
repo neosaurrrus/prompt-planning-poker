@@ -42,8 +42,8 @@ class StoriesContainer extends Component {
       return <h4>{revealedStories.length} revealed</h4>
     }
   } 
+
   render() {
-    
     return (
     <div className='Stories'>
       <h2>{this.props.stories.length} Stories</h2>
@@ -53,7 +53,6 @@ class StoriesContainer extends Component {
         <StoryInput addStory={this.props.addStory} formDisplay={this.state.formDisplay} buttonText={this.state.buttonText} plan={this.props.plan} />
         <br></br>
         <Stories plan={this.props.plan} stories={this.props.stories} editPlan={this.props.editPlan} deleteStory={this.props.deleteStory}/>
-
   </div>
     );
   }
@@ -63,14 +62,12 @@ class StoriesContainer extends Component {
     plan: {},
     stories:[]
   }
-
   
   const mapStateToProps = state => {return {
     plan: state.plan,
     stories: state.stories,
     user: state.user
   }}
-
 
   const mapDispatchToProps = dispatch => {
     return {

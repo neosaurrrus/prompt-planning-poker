@@ -14,7 +14,7 @@ function Intro(){
             <div id="intro-buttons">
                 <span id='intro-button-container'>
                     <button><Link id='new-plan'to="/new-plan">New Plan</Link></button>
-                    <button><Link id='new-plan' to="#info">Learn More</Link></button>
+                    <button><Link id='new-plan' to="#info">More Info</Link></button>
                 </span>
             </div>
             </div>
